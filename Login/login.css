@@ -186,7 +186,6 @@ a, button, input, textarea, select {
     background-color: var(--surface-base);
     border: var(--border-width-thin) solid var(--border-default);
     border-radius: var(--border-radius-100);
-    outline: none;
     transition: var(--transition-default);
 }
 
@@ -255,10 +254,16 @@ a, button, input, textarea, select {
     width: 24px;
     height: 24px;
     transition: var(--transition-fast);
+    pointer-events: none;
 }
 
 .hidden {
     display: none;
+}
+
+/* Ensure SVG icons don't interfere with button interaction */
+svg {
+    pointer-events: none;
 }
 
 /* ====================================== */
