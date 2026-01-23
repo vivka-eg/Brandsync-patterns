@@ -16,13 +16,47 @@ body {
 }
 
 /* ====================================== */
+/* Accessibility */
+/* ====================================== */
+
+/* Ensure focus is always visible for keyboard navigation */
+*:focus-visible {
+    outline: var(--border-width-medium) solid var(--border-primary-focus);
+    outline-offset: var(--spacing-25);
+}
+
+/* Remove default focus outline for mouse users */
+*:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* Improve readability and keyboard navigation */
+a, button, input, textarea, select {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Screen reader only class */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* ====================================== */
 /* Layout */
 /* ====================================== */
 
 .login-container {
     display: flex;
-    min-height: 100vh;
+    height: 100vh;
     width: 100%;
+    overflow: hidden;
 }
 
 /* Left Side - Image */
@@ -44,13 +78,14 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: var(--spacing-1500) var(--sizing-1600);
+    padding: var(--spacing-500) var(--sizing-1600);
     background-color: var(--surface-base);
 }
 
 .login-form {
     width: 100%;
-    max-width: 680px;
+    min-width: 400px;
+    max-width: 600px;
 }
 
 /* ====================================== */
@@ -166,6 +201,12 @@ body {
 .form-input:focus {
     border-color: var(--border-neutral-focus);
     border-width: var(--border-width-medium);
+    box-shadow: 0 0 0 3px var(--color-primary-container);
+}
+
+.form-input:focus-visible {
+    outline: var(--border-width-medium) solid var(--border-primary-focus);
+    outline-offset: var(--spacing-25);
 }
 
 /* Password Input */
@@ -198,6 +239,18 @@ body {
     color: var(--icon-default);
 }
 
+.password-toggle:focus {
+    outline: var(--border-width-medium) solid var(--border-primary-focus);
+    outline-offset: var(--spacing-25);
+    border-radius: var(--border-radius-50);
+}
+
+.password-toggle:focus-visible {
+    outline: var(--border-width-medium) solid var(--border-primary-focus);
+    outline-offset: var(--spacing-25);
+    border-radius: var(--border-radius-50);
+}
+
 .eye-icon {
     width: 24px;
     height: 24px;
@@ -227,10 +280,20 @@ body {
 .checkbox {
     width: 20px;
     height: 20px;
-    border: var(--border-width-thin) solid ;
-    border-radius: 0%;
+    border: var(--border-width-thin) solid var(--border-default);
+    border-radius: var(--border-radius-0);
     cursor: pointer;
     accent-color: var(--color-primary-default);
+}
+
+.checkbox:focus {
+    outline: var(--border-width-medium) solid var(--border-primary-focus);
+    outline-offset: var(--spacing-25);
+}
+
+.checkbox:focus-visible {
+    outline: var(--border-width-medium) solid var(--border-primary-focus);
+    outline-offset: var(--spacing-25);
 }
 
 .checkbox-label {
@@ -246,11 +309,22 @@ body {
     color: var(--text-link);
     text-decoration: none;
     transition: var(--transition-default);
+    border-radius: var(--border-radius-50);
 }
 
 .forgot-password-link:hover {
     color: var(--text-action-hover);
     text-decoration: underline;
+}
+
+.forgot-password-link:focus {
+    outline: var(--border-width-medium) solid var(--border-primary-focus);
+    outline-offset: var(--spacing-25);
+}
+
+.forgot-password-link:focus-visible {
+    outline: var(--border-width-medium) solid var(--border-primary-focus);
+    outline-offset: var(--spacing-25);
 }
 
 /* ====================================== */
@@ -298,28 +372,31 @@ body {
     border-color: var(--color-primary-pressed);
 }
 
-/* Secondary Button */
-.btn-secondary {
-    background-color: var(--surface-base);
-    color: var(--text-default);
-    border: var(--border-width-thin) solid var(--border-default);
+/* Neutral Button */
+.btn-neutral {
+    background-color: var(--color-neutral-container);
+    color: var(--text-neutral-default);
+    border: var(--border-width-thin) solid var(--border-neutral-container);
 }
 
-.btn-secondary:hover {
-    background-color: var(--surface-hover);
-    border-color: var(--border-neutral-hover);
+.btn-neutral:hover {
+    background-color: var(--color-neutral-container-hover);
+    color: var(--text-neutral-hover);
+    border-color: var(--border-neutral-container-hover);
 }
 
-.btn-secondary:focus {
-    background-color: var(--surface-focus);
-    border-color: var(--border-neutral-focus);
-    outline: var(--border-width-medium) solid var(--border-primary-focus);
+.btn-neutral:focus {
+    background-color: var(--color-neutral-container-focused);
+    color: var(--text-neutral-focused);
+    border-color: var(--border-neutral-container-focused);
+    outline: var(--border-width-medium) solid var(--border-neutral-focus);
     outline-offset: var(--spacing-25);
 }
 
-.btn-secondary:active {
-    background-color: var(--surface-pressed);
-    border-color: var(--border-neutral-active);
+.btn-neutral:active {
+    background-color: var(--color-neutral-container-pressed);
+    color: var(--text-neutral-pressed);
+    border-color: var(--border-neutral-container-pressed);
 }
 
 .btn-icon {
@@ -343,11 +420,22 @@ body {
     color: var(--text-link);
     text-decoration: none;
     transition: var(--transition-default);
+    border-radius: var(--border-radius-50);
 }
 
 .signup-link:hover {
     color: var(--text-action-hover);
     text-decoration: underline;
+}
+
+.signup-link:focus {
+    outline: var(--border-width-medium) solid var(--border-primary-focus);
+    outline-offset: var(--spacing-25);
+}
+
+.signup-link:focus-visible {
+    outline: var(--border-width-medium) solid var(--border-primary-focus);
+    outline-offset: var(--spacing-25);
 }
 
 /* ====================================== */
