@@ -643,6 +643,10 @@ body {
     border-bottom: none;
 }
 
+.data-table tbody tr:nth-child(even) {
+    background-color: var(--neutral-25);
+}
+
 .data-table tbody tr:hover {
     background-color: var(--surface-hover);
 }
