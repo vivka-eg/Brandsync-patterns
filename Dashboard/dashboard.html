@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property - EG Facilit</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../_tokens.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <!-- Mobile Overlay -->
+    <div class="mobile-overlay"></div>
+
+    <!-- Add Agent Roles Modal -->
+    <div class="modal-overlay" id="agentRolesModal">
+        <div class="modal-container">
+            <div class="modal-header">
+                <div>
+                    <h2 class="modal-title">Add Agent Roles</h2>
+                    <p class="modal-subtitle">This will set agents and respective roles for selected facilities</p>
+                </div>
+                <button class="modal-close" aria-label="Close modal">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="form-label">Agent</label>
+                    <select class="form-select">
+                        <option value=""></option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Role</label>
+                    <select class="form-select">
+                        <option value=""></option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Comment</label>
+                    <textarea class="form-textarea" placeholder="Placeholder" rows="4"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary modal-discard">Discard</button>
+                <button class="btn btn-primary modal-save">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <!-- Logo -->
+            <div class="sidebar-logo">
+                <div class="logo-container">
+                    <div class="logo-square logo-square-top"></div>
+                    <div class="logo-square logo-square-bottom"></div>
+                </div>
+            </div>
+
+            <!-- Plan Info -->
+            <div class="plan-info">
+                <div class="plan-text">EG Facilit | Property</div>
+                <button class="plan-icon-button" aria-label="Collapse sidebar">
+                    <i data-lucide="chevron-left" class="plan-icon"></i>
+                </button>
+            </div>
+
+            <!-- Navigation -->
+            <nav class="sidebar-nav" role="navigation" aria-label="Main navigation">
+                <div class="nav-section">
+                    <button class="nav-item nav-parent">
+                        <i data-lucide="building" class="nav-icon"></i>
+                        <span>Facility</span>
+                        <i data-lucide="chevron-down" class="expand-icon"></i>
+                    </button>
+                    <div class="nav-submenu">
+                        <a href="#" class="nav-item nav-child active">
+                            <span>Property</span>
+                        </a>
+                        <a href="#" class="nav-item nav-child">
+                            <span>Installation</span>
+                        </a>
+                        <a href="#" class="nav-item nav-child">
+                            <span>Site</span>
+                        </a>
+                        <a href="#" class="nav-item nav-child">
+                            <span>Building</span>
+                        </a>
+                        <a href="#" class="nav-item nav-child">
+                            <span>Room</span>
+                        </a>
+                        <a href="#" class="nav-item nav-child">
+                            <span>Object</span>
+                        </a>
+                        <a href="#" class="nav-item nav-child">
+                            <span>Sections</span>
+                        </a>
+                        <a href="#" class="nav-item nav-child">
+                            <span>Furnishing</span>
+                        </a>
+                        <a href="#" class="nav-item nav-child">
+                            <span>Inventory</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="nav-section">
+                    <button class="nav-item nav-parent">
+                        <i data-lucide="map" class="nav-icon"></i>
+                        <span>Map</span>
+                        <i data-lucide="chevron-down" class="expand-icon"></i>
+                    </button>
+                </div>
+
+                <div class="nav-section">
+                    <button class="nav-item nav-parent">
+                        <i data-lucide="activity" class="nav-icon"></i>
+                        <span>Activity</span>
+                        <i data-lucide="chevron-down" class="expand-icon"></i>
+                    </button>
+                </div>
+
+                <div class="nav-section">
+                    <button class="nav-item nav-parent">
+                        <i data-lucide="user" class="nav-icon"></i>
+                        <span>Agent</span>
+                        <i data-lucide="chevron-down" class="expand-icon"></i>
+                    </button>
+                </div>
+
+                <div class="nav-section">
+                    <button class="nav-item nav-parent">
+                        <i data-lucide="file-text" class="nav-icon"></i>
+                        <span>Agreement</span>
+                        <i data-lucide="chevron-down" class="expand-icon"></i>
+                    </button>
+                </div>
+            </nav>
+
+            <!-- Bottom Nav -->
+            <div class="sidebar-bottom">
+                <!-- User Profile -->
+                <div class="user-profile">
+                    <div class="user-avatar">FM</div>
+                    <div class="user-info">
+                        <div class="user-name">Facility Manager</div>
+                        <div class="user-email">manager@eg.dk</div>
+                    </div>
+                    <i data-lucide="chevron-right" class="chevron-icon"></i>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <i data-lucide="menu"></i>
+            </button>
+
+            <!-- Top Bar -->
+            <header class="top-bar">
+                <div class="search-container">
+                    <i data-lucide="search" class="search-icon"></i>
+                    <input type="search" placeholder="Search" class="search-input">
+                </div>
+                <div class="top-actions">
+                    <button class="icon-btn" aria-label="Recent History">
+                        <i data-lucide="clock"></i>
+                        <span class="btn-text">Recent History</span>
+                    </button>
+                    <button class="icon-btn" aria-label="Help">
+                        <i data-lucide="help-circle"></i>
+                        <span class="btn-text">Help</span>
+                    </button>
+                    <div class="user-avatar">
+                        <img src="https://ui-avatars.com/api/?name=User&background=0073E1&color=fff" alt="User avatar">
+                    </div>
+                </div>
+            </header>
+
+            <!-- Content Header -->
+            <div class="content-header">
+                <h1 class="page-title">Property</h1>
+                <div class="header-actions">
+                    <button class="btn btn-dropdown">
+                        <span>My reports</span>
+                        <i data-lucide="chevron-down"></i>
+                    </button>
+                    <button class="btn btn-secondary">
+                        <i data-lucide="plus"></i>
+                        <span>New report</span>
+                    </button>
+                    <button class="btn btn-icon">
+                        <i data-lucide="copy"></i>
+                    </button>
+                    <button class="btn btn-icon">
+                        <i data-lucide="filter"></i>
+                    </button>
+                    <button class="btn btn-icon">
+                        <i data-lucide="more-horizontal"></i>
+                    </button>
+                    <div class="spacer"></div>
+                    <button class="btn btn-secondary">
+                        <i data-lucide="plus"></i>
+                        <span>Add agent roles</span>
+                    </button>
+                    <button class="btn btn-primary">
+                        <i data-lucide="plus"></i>
+                        <span>New row</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Table Info -->
+            <div class="table-info">
+                Showing rows 1-10 out of 100
+            </div>
+
+            <!-- Data Table -->
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th><input type="checkbox" class="table-checkbox"></th>
+                            <th>Name</th>
+                            <th>Address</th>
+                            <th>Post code</th>
+                            <th>Type</th>
+                            <th>Status</th>
+                            <th>Last Updated</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="checkbox" class="table-checkbox"></td>
+                            <td>CleanPilot Integration</td>
+                            <td>123 Main Street</td>
+                            <td>1234</td>
+                            <td>Commercial</td>
+                            <td><span class="badge badge-success">Active</span></td>
+                            <td>00/00/0000</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="table-checkbox"></td>
+                            <td>CleanPilot Integration II</td>
+                            <td>456 Oak Avenue</td>
+                            <td>5678</td>
+                            <td>Residential</td>
+                            <td><span class="badge badge-neutral">Inactive</span></td>
+                            <td>00/00/0000</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="table-checkbox"></td>
+                            <td>Dynamic_Year_Testing</td>
+                            <td>789 Pine Road</td>
+                            <td>9012</td>
+                            <td>Industrial</td>
+                            <td><span class="badge badge-success">Active</span></td>
+                            <td>00/00/0000</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="table-checkbox"></td>
+                            <td>testing_dynamic</td>
+                            <td>321 Elm Street</td>
+                            <td>3456</td>
+                            <td>Commercial</td>
+                            <td><span class="badge badge-error">Expired</span></td>
+                            <td>00/00/0000</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="table-checkbox"></td>
+                            <td>Testing_prop</td>
+                            <td>654 Maple Drive</td>
+                            <td>7890</td>
+                            <td>Residential</td>
+                            <td><span class="badge badge-success">Active</span></td>
+                            <td>00/00/0000</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="table-checkbox"></td>
+                            <td>Lysaker Torg 4</td>
+                            <td>Lysaker Torg 4</td>
+                            <td>1366</td>
+                            <td>Office</td>
+                            <td><span class="badge badge-neutral">Inactive</span></td>
+                            <td>00/00/0000</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="table-checkbox"></td>
+                            <td>Lysaker Torg 6</td>
+                            <td>Lysaker Torg 6</td>
+                            <td>1366</td>
+                            <td>Office</td>
+                            <td><span class="badge badge-success">Active</span></td>
+                            <td>00/00/0000</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="table-checkbox"></td>
+                            <td>Lysaker Torg 10</td>
+                            <td>Lysaker Torg 10</td>
+                            <td>1366</td>
+                            <td>Office</td>
+                            <td><span class="badge badge-error">Expired</span></td>
+                            <td>00/00/0000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <div class="rows-per-page">
+                    <span>Rows per page</span>
+                    <select class="page-select">
+                        <option value="12" selected>12</option>
+                        <option value="24">24</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                    </select>
+                </div>
+                <div class="pagination-controls">
+                    <button class="pagination-btn" aria-label="Previous page" disabled>
+                        <i data-lucide="chevron-left"></i>
+                    </button>
+                    <div class="page-info">
+                        <input type="number" value="2" class="page-input" min="1" max="10">
+                        <span>of 10 pages</span>
+                    </div>
+                    <button class="pagination-btn" aria-label="Next page">
+                        <i data-lucide="chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Sidebar collapse functionality
+        const sidebar = document.querySelector('.sidebar');
+        const toggleButton = document.querySelector('.plan-icon-button');
+
+        toggleButton.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+
+            // Re-initialize icons after DOM changes
+            setTimeout(() => {
+                lucide.createIcons();
+            }, 100);
+        });
+
+        // Mobile menu functionality
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const mobileOverlay = document.querySelector('.mobile-overlay');
+
+        // Toggle mobile menu
+        mobileMenuToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+            mobileOverlay.classList.toggle('active');
+            document.body.style.overflow = sidebar.classList.contains('open') ? 'hidden' : '';
+        });
+
+        // Close menu when clicking overlay
+        mobileOverlay.addEventListener('click', () => {
+            sidebar.classList.remove('open');
+            mobileOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+        // Close menu when clicking a nav item
+        const navItems = document.querySelectorAll('.nav-item');
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    sidebar.classList.remove('open');
+                    mobileOverlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                sidebar.classList.remove('open');
+                mobileOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Tree navigation expand/collapse
+        const navParents = document.querySelectorAll('.nav-parent');
+        navParents.forEach(parent => {
+            parent.addEventListener('click', (e) => {
+                e.preventDefault();
+                const section = parent.closest('.nav-section');
+                section.classList.toggle('expanded');
+
+                // Re-initialize icons
+                setTimeout(() => {
+                    lucide.createIcons();
+                }, 100);
+            });
+        });
+
+        // Modal functionality
+        const agentRolesModal = document.getElementById('agentRolesModal');
+        const addAgentRolesBtn = document.querySelector('.header-actions .btn-secondary:last-of-type');
+        const modalClose = document.querySelector('.modal-close');
+        const modalDiscard = document.querySelector('.modal-discard');
+        const modalSave = document.querySelector('.modal-save');
+
+        // Open modal
+        if (addAgentRolesBtn) {
+            addAgentRolesBtn.addEventListener('click', () => {
+                agentRolesModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+
+                // Re-initialize icons after modal opens
+                setTimeout(() => {
+                    lucide.createIcons();
+                }, 100);
+            });
+        }
+
+        // Close modal function
+        function closeModal() {
+            agentRolesModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Close modal on X button
+        modalClose.addEventListener('click', closeModal);
+
+        // Close modal on discard button
+        modalDiscard.addEventListener('click', closeModal);
+
+        // Close modal on clicking overlay
+        agentRolesModal.addEventListener('click', (e) => {
+            if (e.target === agentRolesModal) {
+                closeModal();
+            }
+        });
+
+        // Handle save button (you can add your save logic here)
+        modalSave.addEventListener('click', () => {
+            // Add your save logic here
+            console.log('Save agent roles');
+            closeModal();
+        });
+    </script>
+</body>
+</html>
