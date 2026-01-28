@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management - Brandsync</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../_tokens.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <!-- Mobile Overlay -->
+    <div class="mobile-overlay"></div>
+
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <!-- Logo -->
+            <div class="sidebar-logo">
+                <div class="logo-container">
+                    <div class="logo-square logo-square-top"></div>
+                    <div class="logo-square logo-square-bottom"></div>
+                </div>
+            </div>
+
+            <!-- Plan Info -->
+            <div class="plan-info">
+                <div class="plan-text">Basic Plan | Billed Monthly</div>
+                <button class="plan-icon-button" aria-label="Change plan">
+                    <i data-lucide="chevron-left" class="plan-icon"></i>
+                </button>
+            </div>
+
+            <!-- Navigation -->
+            <nav class="sidebar-nav" role="navigation" aria-label="Main navigation">
+                <a href="#" class="nav-item">
+                    <i data-lucide="layout-grid" class="nav-icon"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i data-lucide="map-pin" class="nav-icon"></i>
+                    <span>Locations</span>
+                </a>
+                <a href="#" class="nav-item active">
+                    <i data-lucide="users" class="nav-icon"></i>
+                    <span>User Management</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i data-lucide="file-text" class="nav-icon"></i>
+                    <span>Documents</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i data-lucide="alert-triangle" class="nav-icon"></i>
+                    <span>Risk Assessment</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i data-lucide="network" class="nav-icon"></i>
+                    <span>Organization Structure</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i data-lucide="git-branch" class="nav-icon"></i>
+                    <span>Process Maps</span>
+                </a>
+            </nav>
+
+            <!-- Bottom Nav -->
+            <div class="sidebar-bottom">
+                <a href="#" class="nav-item">
+                    <i data-lucide="globe" class="nav-icon"></i>
+                    <span>Language</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i data-lucide="settings" class="nav-icon"></i>
+                    <span>Settings</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i data-lucide="bell" class="nav-icon"></i>
+                    <span>Notifications</span>
+                </a>
+
+                <!-- User Profile -->
+                <div class="user-profile">
+                    <div class="user-avatar">SL</div>
+                    <div class="user-info">
+                        <div class="user-name">Consultant</div>
+                        <div class="user-email">consultant@eg.dk</div>
+                    </div>
+                    <i data-lucide="chevron-right" class="chevron-icon"></i>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <i data-lucide="menu"></i>
+            </button>
+
+            <!-- Header -->
+            <header class="content-header">
+                <h1 class="page-title">User Management</h1>
+            </header>
+
+            <!-- Tabs -->
+            <div class="tabs-container">
+                <div class="tabs">
+                    <button class="tab active">
+                        <i data-lucide="star" class="tab-icon"></i>
+                        Tab
+                    </button>
+                    <button class="tab">
+                        <i data-lucide="star" class="tab-icon"></i>
+                        Tab
+                    </button>
+                    <button class="tab">
+                        <i data-lucide="star" class="tab-icon"></i>
+                        Tab
+                    </button>
+                    <button class="tab">
+                        <i data-lucide="star" class="tab-icon"></i>
+                        Tab
+                    </button>
+                    <button class="tab">
+                        <i data-lucide="star" class="tab-icon"></i>
+                        Tab
+                    </button>
+                    <button class="tab">
+                        <i data-lucide="star" class="tab-icon"></i>
+                        Tab
+                    </button>
+                </div>
+
+                <!-- Search and Actions -->
+                <div class="header-actions">
+                    <div class="search-box">
+                        <i data-lucide="search" class="search-icon"></i>
+                        <input type="search" placeholder="Search" class="search-input">
+                    </div>
+                    <button class="btn btn-icon-secondary">
+                        <i data-lucide="sliders-horizontal"></i>
+                    </button>
+                    <button class="btn btn-secondary">
+                        <i data-lucide="clock"></i>
+                        Log history
+                    </button>
+                    <button class="btn btn-primary">
+                        <i data-lucide="user-plus"></i>
+                        Add user
+                    </button>
+                </div>
+            </div>
+
+            <!-- Table Info -->
+            <div class="table-info">
+                Showing rows 1-10 out of 100
+            </div>
+
+            <!-- Data Table -->
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th><input type="checkbox" class="table-checkbox"></th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Roles</th>
+                            <th>States</th>
+                            <th>Last Active</th>
+                            <th>State</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="checkbox" class="table-checkbox"></td>
+                            <td>Elisa</td>
+                            <td>email@eg.dk</td>
+                            <td>Paragraph</td>
+                            <td><span class="badge badge-success">Active</span></td>
+                            <td>00/00/0000</td>
+                            <td><span class="badge badge-error">Expired</span></td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="table-checkbox"></td>
+                            <td>Matilda</td>
+                            <td>email@eg.dk</td>
+                            <td>Paragraph</td>
+                            <td><span class="badge badge-neutral">Inactive</span></td>
+                            <td>00/00/0000</td>
+                            <td><span class="badge badge-neutral">Not invited</span></td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="table-checkbox"></td>
+                            <td>Joseph</td>
+                            <td>email@eg.dk</td>
+                            <td>Paragraph</td>
+                            <td><span class="badge badge-neutral">Inactive</span></td>
+                            <td>00/00/0000</td>
+                            <td><span class="badge badge-success">Invited</span></td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="table-checkbox"></td>
+                            <td>Marian</td>
+                            <td>email@eg.dk</td>
+                            <td>Paragraph</td>
+                            <td><span class="badge badge-neutral">Inactive</span></td>
+                            <td>00/00/0000</td>
+                            <td><span class="badge badge-error">Expired</span></td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="table-checkbox"></td>
+                            <td>Paragraph</td>
+                            <td>email@eg.dk</td>
+                            <td>Paragraph</td>
+                            <td><span class="badge badge-success">Active</span></td>
+                            <td>00/00/0000</td>
+                            <td><span class="badge badge-neutral">Not invited</span></td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="table-checkbox"></td>
+                            <td>Paragraph</td>
+                            <td>email@eg.dk</td>
+                            <td>Paragraph</td>
+                            <td><span class="badge badge-success">Active</span></td>
+                            <td>00/00/0000</td>
+                            <td><span class="badge badge-error">Expired</span></td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="table-checkbox"></td>
+                            <td>Paragraph</td>
+                            <td>email@eg.dk</td>
+                            <td>Paragraph</td>
+                            <td><span class="badge badge-neutral">Inactive</span></td>
+                            <td>00/00/0000</td>
+                            <td><span class="badge badge-neutral">Not invited</span></td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="table-checkbox"></td>
+                            <td>Paragraph</td>
+                            <td>email@eg.dk</td>
+                            <td>Paragraph</td>
+                            <td><span class="badge badge-neutral">Inactive</span></td>
+                            <td>00/00/0000</td>
+                            <td><span class="badge badge-neutral">Not invited</span></td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="table-checkbox"></td>
+                            <td>Paragraph</td>
+                            <td>email@eg.dk</td>
+                            <td>Paragraph</td>
+                            <td><span class="badge badge-success">Active</span></td>
+                            <td>00/00/0000</td>
+                            <td><span class="badge badge-success">Invited</span></td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="table-checkbox"></td>
+                            <td>Paragraph</td>
+                            <td>email@eg.dk</td>
+                            <td>Paragraph</td>
+                            <td><span class="badge badge-success">Active</span></td>
+                            <td>00/00/0000</td>
+                            <td><span class="badge badge-error">Expired</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <div class="rows-per-page">
+                    <span>Rows per page</span>
+                    <select class="page-select">
+                        <option value="12" selected>12</option>
+                        <option value="24">24</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                    </select>
+                </div>
+                <div class="pagination-controls">
+                    <button class="pagination-btn" aria-label="Previous page">
+                        <i data-lucide="chevron-left"></i>
+                    </button>
+                    <div class="page-info">
+                        <input type="number" value="2" class="page-input" min="1" max="10">
+                        <span>of 10 pages</span>
+                    </div>
+                    <button class="pagination-btn" aria-label="Next page">
+                        <i data-lucide="chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Sidebar collapse functionality
+        const sidebar = document.querySelector('.sidebar');
+        const toggleButton = document.querySelector('.plan-icon-button');
+
+        toggleButton.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+
+            // Re-initialize icons after DOM changes
+            setTimeout(() => {
+                lucide.createIcons();
+            }, 100);
+        });
+
+        // Tab functionality
+        const tabs = document.querySelectorAll('.tab');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs
+                tabs.forEach(t => t.classList.remove('active'));
+
+                // Add active class to clicked tab
+                tab.classList.add('active');
+            });
+        });
+
+        // Mobile menu functionality
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const mobileOverlay = document.querySelector('.mobile-overlay');
+
+        // Toggle mobile menu
+        mobileMenuToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+            mobileOverlay.classList.toggle('active');
+            document.body.style.overflow = sidebar.classList.contains('open') ? 'hidden' : '';
+        });
+
+        // Close menu when clicking overlay
+        mobileOverlay.addEventListener('click', () => {
+            sidebar.classList.remove('open');
+            mobileOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+        // Close menu when clicking a nav item
+        const navItems = document.querySelectorAll('.nav-item');
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    sidebar.classList.remove('open');
+                    mobileOverlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                sidebar.classList.remove('open');
+                mobileOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    </script>
+</body>
+</html>
