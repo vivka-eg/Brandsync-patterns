@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design System - Left Navigation</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;600;700;900&display=swap" rel="stylesheet">
+
+    <!-- Tokens CSS -->
+    <link rel="stylesheet" href="../_tokens.css">
+
+    <!-- Left Nav Styles -->
+    <link rel="stylesheet" href="leftnav.css">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <!-- Mobile Nav Toggle -->
+    <button class="mobile-nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <i data-lucide="menu"></i>
+    </button>
+
+    <!-- Mobile Nav Overlay -->
+    <div class="mobile-nav-overlay"></div>
+
+    <aside class="left-nav">
+        <!-- Header -->
+        <div class="nav-header">
+            <h1 class="nav-title">Design System</h1>
+        </div>
+
+        <!-- Search -->
+        <div class="search-container">
+            <i data-lucide="search" class="search-icon"></i>
+            <input type="text" class="search-input" placeholder="Search...">
+        </div>
+
+        <!-- Navigation Menu -->
+        <nav class="nav-menu">
+            <!-- Simple Links -->
+            <a href="#" class="nav-item">
+                <i data-lucide="file-text" class="nav-icon"></i>
+                <span class="nav-label">Introduction</span>
+            </a>
+
+            <a href="#" class="nav-item">
+                <i data-lucide="book-open" class="nav-icon"></i>
+                <span class="nav-label">Quick Start Guide</span>
+            </a>
+
+            <a href="#" class="nav-item">
+                <i data-lucide="rocket" class="nav-icon"></i>
+                <span class="nav-label">Implementation Planner</span>
+            </a>
+
+            <a href="#" class="nav-item">
+                <i data-lucide="accessibility" class="nav-icon"></i>
+                <span class="nav-label">Accessibility</span>
+            </a>
+
+            <a href="#" class="nav-item">
+                <i data-lucide="lightbulb" class="nav-icon"></i>
+                <span class="nav-label">Design Philosophy</span>
+            </a>
+
+            <a href="#" class="nav-item">
+                <i data-lucide="pen-tool" class="nav-icon"></i>
+                <span class="nav-label">For Designers</span>
+            </a>
+
+            <a href="#" class="nav-item">
+                <i data-lucide="palette" class="nav-icon"></i>
+                <span class="nav-label">Accessible Palettes</span>
+            </a>
+
+            <!-- Expandable Section - Foundation -->
+            <div class="nav-section">
+                <button class="nav-item nav-parent" aria-expanded="false">
+                    <i data-lucide="more-horizontal" class="nav-icon"></i>
+                    <span class="nav-label">Foundation</span>
+                    <i data-lucide="chevron-down" class="expand-icon"></i>
+                </button>
+                <div class="nav-submenu">
+                    <a href="#" class="nav-item nav-child">Colors</a>
+                    <a href="#" class="nav-item nav-child">Typography</a>
+                    <a href="#" class="nav-item nav-child">Spacing</a>
+                    <a href="#" class="nav-item nav-child">Elevation</a>
+                </div>
+            </div>
+
+            <!-- Expandable Section - Components -->
+            <div class="nav-section">
+                <button class="nav-item nav-parent" aria-expanded="false">
+                    <i data-lucide="layout-grid" class="nav-icon"></i>
+                    <span class="nav-label">Components</span>
+                    <i data-lucide="chevron-down" class="expand-icon"></i>
+                </button>
+                <div class="nav-submenu">
+                    <a href="#" class="nav-item nav-child">Buttons</a>
+                    <a href="#" class="nav-item nav-child">Input Fields</a>
+                    <a href="#" class="nav-item nav-child">Cards</a>
+                    <a href="#" class="nav-item nav-child">Navigation</a>
+                    <a href="#" class="nav-item nav-child">Modals</a>
+                </div>
+            </div>
+        </nav>
+    </aside>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Get all nav items and parent buttons
+        const allNavItems = document.querySelectorAll('.nav-item:not(.nav-parent)');
+        const allParents = document.querySelectorAll('.nav-parent');
+        const navSections = document.querySelectorAll('.nav-section');
+
+        // Mobile menu elements
+        const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+        const leftNav = document.querySelector('.left-nav');
+        const mobileNavOverlay = document.querySelector('.mobile-nav-overlay');
+
+        // Function to remove all active states
+        function removeAllActiveStates() {
+            allNavItems.forEach(item => item.classList.remove('active'));
+            allParents.forEach(parent => parent.classList.remove('active'));
+        }
+
+        // Mobile menu toggle functionality
+        function toggleMobileNav() {
+            leftNav.classList.toggle('open');
+            mobileNavOverlay.classList.toggle('active');
+            const isOpen = leftNav.classList.contains('open');
+            mobileNavToggle.setAttribute('aria-expanded', isOpen);
+
+            // Change icon
+            const icon = mobileNavToggle.querySelector('[data-lucide]');
+            if (isOpen) {
+                icon.setAttribute('data-lucide', 'x');
+            } else {
+                icon.setAttribute('data-lucide', 'menu');
+            }
+            lucide.createIcons();
+        }
+
+        mobileNavToggle.addEventListener('click', toggleMobileNav);
+        mobileNavOverlay.addEventListener('click', toggleMobileNav);
+
+        // Expandable sections functionality
+        navSections.forEach(section => {
+            const parent = section.querySelector('.nav-parent');
+
+            parent.addEventListener('click', () => {
+                const isExpanded = section.classList.contains('expanded');
+                const wasActive = parent.classList.contains('active');
+
+                // Remove all active states first
+                removeAllActiveStates();
+
+                // Toggle expanded state
+                section.classList.toggle('expanded');
+                parent.setAttribute('aria-expanded', !isExpanded);
+
+                // If expanding, make parent active
+                if (!isExpanded) {
+                    parent.classList.add('active');
+                }
+
+                // Re-initialize icons after changing the chevron
+                lucide.createIcons();
+            });
+        });
+
+        // Active state functionality for all nav items (excluding parent buttons)
+        allNavItems.forEach(item => {
+            item.addEventListener('click', () => {
+                // Remove all active states (including parent active states)
+                removeAllActiveStates();
+
+                // Add active class to clicked item
+                item.classList.add('active');
+
+                // Close mobile menu if open (on smaller screens)
+                if (window.innerWidth <= 768 && leftNav.classList.contains('open')) {
+                    toggleMobileNav();
+                }
+            });
+        });
+
+        // Close menu on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && leftNav.classList.contains('open')) {
+                toggleMobileNav();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EG Infodoc - Top Navigation</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;600;700;900&display=swap" rel="stylesheet">
+
+    <!-- Tokens CSS -->
+    <link rel="stylesheet" href="../_tokens.css">
+
+    <!-- Top Nav Styles -->
+    <link rel="stylesheet" href="topnav.css">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <nav class="top-nav">
+        <div class="nav-container">
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+                <i data-lucide="menu" class="menu-icon"></i>
+            </button>
+
+            <!-- Logo and Brand -->
+            <div class="nav-brand">
+                <div class="logo-container">
+                    <div class="logo-square logo-square-top"></div>
+                    <div class="logo-square logo-square-bottom"></div>
+                </div>
+                <span class="brand-name">EG Infodoc</span>
+            </div>
+
+            <!-- Navigation Links -->
+            <div class="nav-links">
+                <a href="#" class="nav-link active">Home</a>
+                <a href="#" class="nav-link">About</a>
+                <a href="#" class="nav-link">Statistics</a>
+                <a href="#" class="nav-link">Pricing</a>
+            </div>
+
+            <!-- Right Side Actions -->
+            <div class="nav-actions">
+                <!-- Search Toggle (Mobile) -->
+                <button class="icon-button search-toggle" aria-label="Toggle search">
+                    <i data-lucide="search"></i>
+                </button>
+
+                <!-- Search (Desktop) -->
+                <div class="search-container">
+                    <i data-lucide="search" class="search-icon"></i>
+                    <input type="text" class="search-input" placeholder="Search">
+                </div>
+
+                <!-- Notification Bell -->
+                <button class="icon-button" aria-label="Notifications">
+                    <i data-lucide="bell"></i>
+                </button>
+
+                <!-- User Avatar -->
+                <button class="user-avatar" aria-label="User menu">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop" alt="User avatar">
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Search Bar -->
+        <div class="mobile-search">
+            <div class="mobile-search-container">
+                <i data-lucide="search" class="search-icon"></i>
+                <input type="text" class="search-input" placeholder="Search">
+                <button class="search-close" aria-label="Close search">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div class="mobile-overlay"></div>
+    </nav>
+
+
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Mobile menu functionality
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        const mobileOverlay = document.querySelector('.mobile-overlay');
+        const menuIcon = document.querySelector('.menu-icon');
+
+        function toggleMobileMenu() {
+            navLinks.classList.toggle('open');
+            mobileOverlay.classList.toggle('active');
+            const isOpen = navLinks.classList.contains('open');
+            mobileMenuToggle.setAttribute('aria-expanded', isOpen);
+
+            // Change icon
+            if (isOpen) {
+                menuIcon.setAttribute('data-lucide', 'x');
+            } else {
+                menuIcon.setAttribute('data-lucide', 'menu');
+            }
+            lucide.createIcons();
+        }
+
+        mobileMenuToggle.addEventListener('click', toggleMobileMenu);
+        mobileOverlay.addEventListener('click', toggleMobileMenu);
+
+        // Close menu when clicking a link
+        const navLinksItems = document.querySelectorAll('.nav-link');
+        navLinksItems.forEach(link => {
+            link.addEventListener('click', () => {
+                if (navLinks.classList.contains('open')) {
+                    toggleMobileMenu();
+                }
+            });
+        });
+
+        // Mobile search functionality
+        const searchToggle = document.querySelector('.search-toggle');
+        const mobileSearch = document.querySelector('.mobile-search');
+        const searchClose = document.querySelector('.search-close');
+
+        searchToggle.addEventListener('click', () => {
+            mobileSearch.classList.add('active');
+            // Focus on the search input
+            setTimeout(() => {
+                mobileSearch.querySelector('.search-input').focus();
+            }, 100);
+        });
+
+        searchClose.addEventListener('click', () => {
+            mobileSearch.classList.remove('active');
+            mobileSearch.querySelector('.search-input').value = '';
+        });
+
+        // Close search on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                if (mobileSearch.classList.contains('active')) {
+                    mobileSearch.classList.remove('active');
+                }
+                if (navLinks.classList.contains('open')) {
+                    toggleMobileMenu();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
