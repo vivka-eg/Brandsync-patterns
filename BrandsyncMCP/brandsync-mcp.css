@@ -1,0 +1,533 @@
+/* ====================================== */
+/* BrandSync MCP Landing Page Styles     */
+/* ====================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family-body);
+    background-color: var(--surface-container);
+    color: var(--text-default);
+    line-height: 1.5;
+    min-height: 100vh;
+}
+
+/* ====================================== */
+/* Page Container */
+/* ====================================== */
+
+.page-container {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-600) var(--spacing-300) var(--spacing-200);
+}
+
+/* ====================================== */
+/* Hero Section */
+/* ====================================== */
+
+.hero-section {
+    max-width: 800px;
+    width: 100%;
+    text-align: center;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-300);
+}
+
+.hero-title {
+    font-size: 48px;
+    font-weight: var(--font-weight-bold);
+    color: var(--text-default);
+    font-family: var(--font-family-heading);
+    line-height: 1.2;
+    max-width: 700px;
+}
+
+.hero-subtitle {
+    font-size: var(--font-size-large);
+    color: var(--text-secondary);
+    line-height: 1.6;
+    max-width: 600px;
+}
+
+.hero-powered {
+    font-size: var(--font-size-medium);
+    color: var(--text-muted);
+}
+
+/* ====================================== */
+/* Hero Actions */
+/* ====================================== */
+
+.hero-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-200);
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Buttons */
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-100);
+    padding: var(--spacing-150) var(--spacing-300);
+    font-size: var(--font-size-medium);
+    font-weight: var(--font-weight-semibold);
+    font-family: var(--font-family-body);
+    border-radius: var(--border-radius-100);
+    cursor: pointer;
+    transition: var(--transition-default);
+    white-space: nowrap;
+    border: var(--border-width-thin) solid transparent;
+}
+
+/* Primary Button */
+.btn-primary {
+    background-color: var(--color-primary-default);
+    color: var(--text-on-action);
+    border-color: var(--color-primary-default);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-primary-hover);
+    border-color: var(--color-primary-hover);
+}
+
+.btn-primary:focus {
+    background-color: var(--color-primary-focused);
+    border-color: var(--color-primary-focused);
+    outline: var(--border-width-medium) solid var(--border-primary-focus);
+    outline-offset: var(--spacing-25);
+}
+
+.btn-primary:active {
+    background-color: var(--color-primary-pressed);
+    border-color: var(--color-primary-pressed);
+}
+
+/* Secondary Button */
+.btn-secondary {
+    background-color: var(--color-neutral-container);
+    color: var(--text-neutral-default);
+    border-color: var(--border-neutral-container);
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-neutral-container-hover);
+    color: var(--text-neutral-hover);
+    border-color: var(--border-neutral-container-hover);
+}
+
+.btn-secondary:focus {
+    background-color: var(--color-neutral-container-focused);
+    color: var(--text-neutral-focused);
+    border-color: var(--border-neutral-container-focused);
+    outline: var(--border-width-medium) solid var(--border-neutral-focus);
+    outline-offset: var(--spacing-25);
+}
+
+.btn-secondary:active {
+    background-color: var(--color-neutral-container-pressed);
+    color: var(--text-neutral-pressed);
+    border-color: var(--border-neutral-container-pressed);
+}
+
+/* ====================================== */
+/* Code Demo */
+/* ====================================== */
+
+.code-demo {
+    width: 100%;
+    max-width: 600px;
+    background-color: var(--neutral-950);
+    border-radius: var(--border-radius-150);
+    overflow: hidden;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.code-demo-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-200) var(--spacing-250);
+    background-color: var(--neutral-900);
+    border-bottom: var(--border-width-thin) solid var(--neutral-800);
+}
+
+.code-tabs {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-100);
+}
+
+.code-tab {
+    background: none;
+    border: none;
+    padding: var(--spacing-100) var(--spacing-200);
+    font-size: var(--font-size-medium);
+    font-weight: var(--font-weight-medium);
+    font-family: var(--font-family-body);
+    color: var(--neutral-400);
+    cursor: pointer;
+    border-radius: var(--border-radius-75);
+    transition: var(--transition-default);
+}
+
+.code-tab:hover {
+    background-color: var(--neutral-800);
+    color: var(--neutral-200);
+}
+
+.code-tab.active {
+    background-color: var(--neutral-800);
+    color: var(--static-white);
+}
+
+.copy-btn {
+    background-color: var(--neutral-800);
+    border: var(--border-width-thin) solid var(--neutral-700);
+    padding: var(--spacing-75) var(--spacing-200);
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-medium);
+    font-family: var(--font-family-body);
+    color: var(--neutral-200);
+    cursor: pointer;
+    border-radius: var(--border-radius-75);
+    transition: var(--transition-default);
+}
+
+.copy-btn:hover {
+    background-color: var(--neutral-700);
+    color: var(--static-white);
+    border-color: var(--neutral-600);
+}
+
+.copy-btn:active {
+    background-color: var(--neutral-600);
+}
+
+.code-demo-body {
+    padding: var(--spacing-300);
+}
+
+.code-block {
+    margin: 0;
+    padding: 0;
+}
+
+.code-block code {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: var(--font-size-medium);
+    color: var(--static-white);
+    display: block;
+    text-align: left;
+}
+
+/* ====================================== */
+/* UI Pages Section */
+/* ====================================== */
+
+.ui-pages-section {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: var(--spacing-100) var(--spacing-300);
+        margin-bottom: var(--spacing-1000);
+
+}
+
+.ui-pages-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-400);
+}
+
+.section-title {
+    font-size: 32px;
+    font-weight: var(--font-weight-bold);
+    color: var(--text-default);
+    font-family: var(--font-family-heading);
+    text-align: center;
+}
+
+/* UI Tabs */
+.ui-tabs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-300);
+    padding-bottom: var(--spacing-200);
+    border-bottom: var(--border-width-thin) solid var(--border-default);
+    flex-wrap: wrap;
+}
+
+.ui-tab {
+    background: none;
+    border: none;
+    padding: var(--spacing-150) var(--spacing-200);
+    font-size: var(--font-size-medium);
+    font-weight: var(--font-weight-medium);
+    font-family: var(--font-family-body);
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: var(--transition-default);
+    position: relative;
+    border-bottom: 2px solid transparent;
+}
+
+.ui-tab:hover {
+    color: var(--text-default);
+}
+
+.ui-tab.active {
+    color: var(--text-default);
+    border-bottom-color: var(--color-primary-default);
+}
+
+/* Content Grid */
+.ui-content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-400);
+    margin-top: var(--spacing-300);
+    align-items: center;
+}
+
+/* Preview Column */
+.preview-column {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.preview-container {
+    width: 100%;
+    background-color: var(--surface-base);
+    border-radius: var(--border-radius-150);
+    overflow: hidden;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    border: var(--border-width-thin) solid var(--border-default);
+}
+
+.preview-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Code Column */
+.code-column {
+    display: flex;
+    align-items: center;
+}
+
+.prompt-box {
+    width: 100%;
+    background-color: var(--neutral-950);
+    border-radius: var(--border-radius-150);
+    overflow: hidden;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.prompt-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: var(--spacing-200) var(--spacing-250);
+    background-color: var(--neutral-900);
+    border-bottom: var(--border-width-thin) solid var(--neutral-800);
+}
+
+.copy-btn-small {
+    background-color: var(--neutral-800);
+    border: var(--border-width-thin) solid var(--neutral-700);
+    padding: var(--spacing-75) var(--spacing-200);
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-medium);
+    font-family: var(--font-family-body);
+    color: var(--neutral-200);
+    cursor: pointer;
+    border-radius: var(--border-radius-75);
+    transition: var(--transition-default);
+}
+
+.copy-btn-small:hover {
+    background-color: var(--neutral-700);
+    color: var(--static-white);
+    border-color: var(--neutral-600);
+}
+
+.copy-btn-small:active {
+    background-color: var(--neutral-600);
+}
+
+.prompt-content {
+    padding: var(--spacing-300);
+    color: var(--static-white);
+    max-height: 280px;
+    overflow-y: auto;
+}
+
+.prompt-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.prompt-content::-webkit-scrollbar-track {
+    background: var(--neutral-900);
+}
+
+.prompt-content::-webkit-scrollbar-thumb {
+    background: var(--neutral-700);
+    border-radius: var(--border-radius-50);
+}
+
+.prompt-content::-webkit-scrollbar-thumb:hover {
+    background: var(--neutral-600);
+}
+
+.prompt-title {
+    font-size: var(--font-size-medium);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-300);
+}
+
+.prompt-section {
+    margin-bottom: var(--spacing-250);
+}
+
+.prompt-heading {
+    font-size: var(--font-size-medium);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--spacing-150);
+}
+
+.prompt-list {
+    list-style-position: outside;
+    padding-left: var(--spacing-250);
+    margin: 0;
+}
+
+.prompt-list li {
+    font-size: var(--font-size-small);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-100);
+    color: var(--neutral-200);
+}
+
+.prompt-list li::marker {
+    color: var(--neutral-400);
+}
+
+.prompt-list-nested {
+    list-style-position: outside;
+    padding-left: var(--spacing-250);
+    margin-top: var(--spacing-100);
+    margin-bottom: 0;
+}
+
+.prompt-list-nested li {
+    font-size: var(--font-size-small);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-75);
+    color: var(--neutral-200);
+}
+
+.prompt-list-nested li::marker {
+    color: var(--neutral-400);
+}
+
+/* ====================================== */
+/* Responsive Design */
+/* ====================================== */
+
+@media (max-width: 1024px) {
+    .ui-content-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-300);
+    }
+
+    .preview-container {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 36px;
+    }
+
+    .hero-subtitle {
+        font-size: var(--font-size-medium);
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .code-demo-header {
+        flex-direction: column;
+        gap: var(--spacing-150);
+        align-items: flex-start;
+    }
+
+    .copy-btn {
+        align-self: flex-end;
+    }
+
+    .section-title {
+        font-size: 28px;
+    }
+
+    .ui-tabs {
+        gap: var(--spacing-150);
+    }
+
+    .ui-tab {
+        font-size: var(--font-size-small);
+        padding: var(--spacing-100) var(--spacing-150);
+    }
+
+    .ui-pages-section {
+        padding: var(--spacing-600) var(--spacing-200);
+    }
+}
+
+@media (max-width: 480px) {
+    .page-container {
+        padding: var(--spacing-200);
+    }
+
+    .hero-title {
+        font-size: 28px;
+    }
+
+    .code-tabs {
+        flex-wrap: wrap;
+    }
+
+    .code-block code {
+        font-size: var(--font-size-small);
+        word-break: break-all;
+    }
+}

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrandSync MCP - Generate Production-Ready UI</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;600;700;900&display=swap" rel="stylesheet">
+
+    <!-- Tokens CSS -->
+    <link rel="stylesheet" href="../_tokens.css">
+
+    <!-- BrandSync MCP Styles -->
+    <link rel="stylesheet" href="brandsync-mcp.css">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="page-container">
+        <main class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">Generate production-ready UI for your framework in minutes</h1>
+
+                <p class="hero-subtitle">Generate product UI aligned to your framework and BrandSync tokens — in minutes.</p>
+
+                <p class="hero-powered">Powered by BrandSync MCP. Just install and connect</p>
+
+                <div class="hero-actions">
+                    <button class="btn btn-primary">View Documentation</button>
+                    <button class="btn btn-secondary">View on Github</button>
+                </div>
+
+                <div class="code-demo">
+                    <div class="code-demo-header">
+                        <div class="code-tabs">
+                            <button class="code-tab active">npm</button>
+                            <button class="code-tab">Yarn</button>
+                            <button class="code-tab">pnpm</button>
+                            <button class="code-tab">Demo</button>
+                        </div>
+                        <button class="copy-btn">Copy</button>
+                    </div>
+                    <div class="code-demo-body">
+                        <pre class="code-block"><code>$ npm install brandsync-mcp</code></pre>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- UI Pages Section -->
+    <section class="ui-pages-section">
+            <div class="ui-pages-content">
+                <h2 class="section-title">Select from wide range of UI pages</h2>
+
+                <!-- Navigation Tabs -->
+                <nav class="ui-tabs">
+                    <button class="ui-tab">Login</button>
+                    <button class="ui-tab active">Dashboards</button>
+                    <button class="ui-tab">User management</button>
+                    <button class="ui-tab">Example Pages</button>
+                    <button class="ui-tab">Token Preview</button>
+                </nav>
+
+                <!-- Content Grid -->
+                <div class="ui-content-grid">
+                    <!-- Preview Column -->
+                    <div class="preview-column">
+                        <div class="preview-container">
+                            <img src="../images/Dashboard.png" alt="Dashboard Preview" class="preview-image">
+                        </div>
+                    </div>
+
+                    <!-- Code Column -->
+                    <div class="code-column">
+                        <div class="prompt-box">
+                            <div class="prompt-header">
+                                <button class="copy-btn-small">Copy</button>
+                            </div>
+                            <div class="prompt-content">
+                                <p class="prompt-title">Create a product dashboard UI using the BrandSync Design System via BrandSync MCP.</p>
+
+                                <div class="prompt-section">
+                                    <p class="prompt-heading">Requirements:</p>
+                                    <ul class="prompt-list">
+                                        <li>Target output: product dashboard (not a marketing website)</li>
+                                        <li>Use the connected framework defaults (do not invent frameworks)</li>
+                                        <li>Use BrandSync design tokens exclusively</li>
+                                        <li>Reference token-based CSS values where applicable (spacing, color, typography, radius, elevation)</li>
+                                        <li>Do not hardcode raw values (no hex colors, px values, or custom CSS outside tokens)</li>
+                                        <li>Ensure BrandSync token compliance and semantic correctness</li>
+                                    </ul>
+                                </div>
+
+                                <div class="prompt-section">
+                                    <p class="prompt-heading">Dashboard scope:</p>
+                                    <ul class="prompt-list">
+                                        <li>Top navigation bar</li>
+                                        <li>Sidebar navigation</li>
+                                        <li>Main content area with:
+                                            <ul class="prompt-list-nested">
+                                                <li>KPI summary cards</li>
+                                                <li>Data table or list</li>
+                                                <li>Primary action button</li>
+                                            </ul>
+                                        </li>
+                                        <li>Use appropriate semantic tokens for:
+                                            <ul class="prompt-list-nested">
+                                                <li>Surface backgrounds</li>
+                                                <li>Text hierarchy</li>
+                                                <li>Borders and dividers</li>
+                                                <li>Focus and hover states</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="prompt-section">
+                                    <p class="prompt-heading">Constraints:</p>
+                                    <ul class="prompt-list">
+                                        <li>Follow accessibility best practices (WCAG AA minimum)</li>
+                                        <li>Use consistent spacing and layout tokens</li>
+                                        <li>Prefer semantic tokens over component-specific overrides</li>
+                                        <li>If a token is unavailable, request it instead of guessing</li>
+                                    </ul>
+                                </div>
+
+                                <div class="prompt-section">
+                                    <p class="prompt-heading">Output:</p>
+                                    <ul class="prompt-list">
+                                        <li>Generate framework-ready UI code</li>
+                                        <li>Annotate which BrandSync tokens are used (inline comments or metadata)</li>
+                                        <li>Ensure the result is production-oriented, not a mockup</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Copy button functionality
+        const copyBtn = document.querySelector('.copy-btn');
+        const codeBlock = document.querySelector('.code-block code');
+
+        copyBtn.addEventListener('click', () => {
+            const textToCopy = codeBlock.textContent;
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                copyBtn.textContent = 'Copied!';
+                setTimeout(() => {
+                    copyBtn.textContent = 'Copy';
+                }, 2000);
+            });
+        });
+
+        // Tab switching functionality
+        const codeTabs = document.querySelectorAll('.code-tab');
+        const codeCommands = {
+            'npm': '$ npm install brandsync-mcp',
+            'Yarn': '$ yarn add brandsync-mcp',
+            'pnpm': '$ pnpm add brandsync-mcp',
+            'Demo': '$ npx brandsync-mcp init'
+        };
+
+        codeTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs
+                codeTabs.forEach(t => t.classList.remove('active'));
+
+                // Add active class to clicked tab
+                tab.classList.add('active');
+
+                // Update code block content
+                const tabName = tab.textContent;
+                codeBlock.textContent = codeCommands[tabName];
+            });
+        });
+
+        // UI Tabs functionality
+        const uiTabs = document.querySelectorAll('.ui-tab');
+
+        uiTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs
+                uiTabs.forEach(t => t.classList.remove('active'));
+
+                // Add active class to clicked tab
+                tab.classList.add('active');
+
+                // Here you could add logic to show different content based on tab
+                console.log('Selected tab:', tab.textContent);
+            });
+        });
+
+        // Copy button for prompt box
+        const copyBtnSmall = document.querySelector('.copy-btn-small');
+        const promptContent = document.querySelector('.prompt-content');
+
+        if (copyBtnSmall && promptContent) {
+            copyBtnSmall.addEventListener('click', () => {
+                const textToCopy = promptContent.textContent.trim();
+                navigator.clipboard.writeText(textToCopy).then(() => {
+                    copyBtnSmall.textContent = 'Copied!';
+                    setTimeout(() => {
+                        copyBtnSmall.textContent = 'Copy';
+                    }, 2000);
+                });
+            });
+        }
+    </script>
+</body>
+</html>

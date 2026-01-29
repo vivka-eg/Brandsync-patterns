@@ -1,0 +1,33 @@
+Create a product dashboard UI using the BrandSync Design System via BrandSync MCP.
+
+Requirements:
+- Target output: product dashboard (not a marketing website)
+- Use the connected framework defaults (do not invent frameworks)
+- Use BrandSync design tokens exclusively
+- Reference token-based CSS values where applicable (spacing, color, typography, radius, elevation)
+- Do not hardcode raw values (no hex colors, px values, or custom CSS outside tokens)
+- Ensure BrandSync token compliance and semantic correctness
+
+Dashboard scope:
+- Top navigation bar
+- Sidebar navigation
+- Main content area with:
+  - KPI summary cards
+  - Data table or list
+  - Primary action button
+- Use appropriate semantic tokens for:
+  - Surface backgrounds
+  - Text hierarchy
+  - Borders and dividers
+  - Focus and hover states
+
+Constraints:
+- Follow accessibility best practices (WCAG AA minimum)
+- Use consistent spacing and layout tokens
+- Prefer semantic tokens over component-specific overrides
+- If a token is unavailable, request it instead of guessing
+
+Output:
+- Generate framework-ready UI code
+- Annotate which BrandSync tokens are used (inline comments or metadata)
+- Ensure the result is production-oriented, not a mockup
