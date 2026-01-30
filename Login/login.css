@@ -444,6 +444,65 @@ svg {
 }
 
 /* ====================================== */
+/* Floating Theme Toggle */
+/* ====================================== */
+
+.theme-toggle-floating {
+    position: fixed;
+    top: var(--spacing-300);
+    right: var(--spacing-300);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background-color: var(--surface-base);
+    border: var(--border-width-thin) solid var(--border-default);
+    border-radius: var(--border-radius-full);
+    color: var(--icon-secondary);
+    cursor: pointer;
+    transition: var(--transition-default);
+    z-index: 1000;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.theme-toggle-floating:hover {
+    background-color: var(--surface-hover);
+    color: var(--icon-default);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.theme-toggle-floating:active {
+    background-color: var(--surface-pressed);
+}
+
+.theme-icon-light,
+.theme-icon-dark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    width: 20px;
+    height: 20px;
+}
+
+.theme-icon-dark {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(180deg);
+}
+
+[data-theme="dark"] .theme-icon-light {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(-180deg);
+}
+
+[data-theme="dark"] .theme-icon-dark {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(0deg);
+}
+
+/* ====================================== */
 /* Responsive Design */
 /* ====================================== */
 

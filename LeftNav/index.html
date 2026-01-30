@@ -31,7 +31,13 @@
     <aside class="left-nav">
         <!-- Header -->
         <div class="nav-header">
-            <h1 class="nav-title">Design System</h1>
+            <div class="nav-header-content">
+                <h1 class="nav-title">Design System</h1>
+                <button class="theme-toggle-btn" aria-label="Toggle theme">
+                    <i data-lucide="sun" class="theme-icon-light"></i>
+                    <i data-lucide="moon" class="theme-icon-dark"></i>
+                </button>
+            </div>
         </div>
 
         <!-- Search -->
@@ -112,6 +118,26 @@
     </aside>
 
     <script>
+        // Theme switching functionality
+        const themeToggleBtn = document.querySelector('.theme-toggle-btn');
+        const htmlElement = document.documentElement;
+
+        // Check for saved theme preference or default to light mode
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        htmlElement.setAttribute('data-theme', currentTheme);
+
+        // Theme toggle handler
+        themeToggleBtn.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+            htmlElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+
+            // Re-initialize icons for smooth transition
+            lucide.createIcons();
+        });
+
         // Initialize Lucide icons
         lucide.createIcons();
 

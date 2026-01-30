@@ -20,6 +20,12 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
+    <!-- Floating Theme Toggle -->
+    <button class="theme-toggle-floating" aria-label="Toggle theme">
+        <i data-lucide="sun" class="theme-icon-light"></i>
+        <i data-lucide="moon" class="theme-icon-dark"></i>
+    </button>
+
     <div class="page-container">
         <main class="hero-section">
             <div class="hero-content">
@@ -145,6 +151,26 @@
         </section>
 
     <script>
+        // Theme switching functionality
+        const themeToggle = document.querySelector('.theme-toggle-floating');
+        const htmlElement = document.documentElement;
+
+        // Check for saved theme preference or default to light mode
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        htmlElement.setAttribute('data-theme', currentTheme);
+
+        // Theme toggle handler
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+            htmlElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+
+            // Re-initialize icons for smooth transition
+            lucide.createIcons();
+        });
+
         // Initialize Lucide icons
         lucide.createIcons();
 

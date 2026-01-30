@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Details - EG Infodoc</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;600;700;900&display=swap" rel="stylesheet">
+
+    <!-- Tokens CSS -->
+    <link rel="stylesheet" href="../_tokens.css">
+
+    <!-- Personal Details Styles -->
+    <link rel="stylesheet" href="personal-details.css">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <div class="nav-container">
+            <!-- Logo and Brand -->
+            <div class="nav-brand">
+                <div class="logo-container">
+                    <div class="logo-square logo-square-top"></div>
+                    <div class="logo-square logo-square-bottom"></div>
+                </div>
+                <span class="brand-name">EG Infodoc</span>
+            </div>
+
+            <!-- Navigation Links -->
+            <div class="nav-links">
+                <a href="#" class="nav-link">File</a>
+                <a href="#" class="nav-link">Journal</a>
+                <a href="#" class="nav-link">View</a>
+                <a href="#" class="nav-link">Insert</a>
+                <a href="#" class="nav-link">Register</a>
+                <a href="#" class="nav-link">Other Modules</a>
+            </div>
+
+            <!-- Right Side Actions -->
+            <div class="nav-actions">
+                <button class="icon-button" aria-label="Debug">
+                    <i data-lucide="bug"></i>
+                    <span class="action-text">Debug</span>
+                </button>
+                <button class="icon-button" aria-label="Help">
+                    <i data-lucide="help-circle"></i>
+                    <span class="action-text">Help</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Personal Details Header -->
+        <section class="personal-details-header">
+            <h1 class="section-title">Personal Details</h1>
+
+            <div class="patient-info-card">
+                <div class="patient-avatar">
+                    <i data-lucide="user"></i>
+                </div>
+
+                <div class="patient-details">
+                    <div class="detail-item">
+                        <span class="detail-label">Date of birth</span>
+                        <span class="detail-value">13.11.1969</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">ID</span>
+                        <span class="detail-value">00216</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Name</span>
+                        <span class="detail-value">Line Danser</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Gender</span>
+                        <span class="detail-value">Female</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">General practitioner</span>
+                        <span class="detail-value">Allda Fos Eeg</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Age</span>
+                        <span class="detail-value">55 years</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tabs Navigation -->
+        <nav class="tabs-nav">
+            <a href="#" class="tab-link active">Journal</a>
+            <a href="#" class="tab-link">Overview</a>
+            <a href="#" class="tab-link">Medication</a>
+            <a href="#" class="tab-link">Lab</a>
+            <a href="#" class="tab-link">Other examinations</a>
+            <a href="#" class="tab-link">Sick leave</a>
+            <a href="#" class="tab-link">Percentile</a>
+            <a href="#" class="tab-link">Vaccination</a>
+            <a href="#" class="tab-link">Correspondence</a>
+        </nav>
+
+        <!-- Journal Actions Bar -->
+        <div class="journal-actions">
+            <div class="action-buttons-left">
+                <button class="btn btn-primary">
+                    <i data-lucide="plus"></i>
+                    <span>New journal</span>
+                </button>
+                <button class="btn btn-secondary">
+                    <i data-lucide="edit"></i>
+                    <span>Edit journal</span>
+                </button>
+                <button class="btn btn-icon" aria-label="Speech to text">
+                    <i data-lucide="mic"></i>
+                </button>
+                <button class="btn btn-icon" aria-label="Copy">
+                    <i data-lucide="copy"></i>
+                </button>
+                <button class="btn btn-icon" aria-label="Print">
+                    <i data-lucide="printer"></i>
+                </button>
+                <button class="btn btn-icon" aria-label="View">
+                    <i data-lucide="eye"></i>
+                </button>
+            </div>
+
+            <div class="action-buttons-right">
+                <div class="sort-dropdown">
+                    <label for="sortBy">Sort by</label>
+                    <select id="sortBy" class="sort-select">
+                        <option value="chronological">Chronological order</option>
+                        <option value="date-newest">Date (Newest)</option>
+                        <option value="date-oldest">Date (Oldest)</option>
+                    </select>
+                </div>
+
+                <div class="search-container">
+                    <i data-lucide="search" class="search-icon"></i>
+                    <input type="search" class="search-input" placeholder="Search">
+                </div>
+            </div>
+        </div>
+
+        <!-- Journal Entries -->
+        <div class="journal-entries">
+            <!-- Journal Entry 1 -->
+            <article class="journal-entry">
+                <div class="entry-header">
+                    <div class="entry-timestamp">
+                        <span class="entry-date">17.03.2025 15:42</span>
+                        <span class="entry-duration">Time used: 00:01</span>
+                        <span class="badge badge-warning">eos (unsigned)</span>
+                    </div>
+                </div>
+
+                <div class="entry-content">
+                    <div class="entry-section">
+                        <h3 class="entry-section-title">Medical History</h3>
+                        <p class="entry-text">The patient reports three days of fever, dry cough, and fatigue.</p>
+                    </div>
+
+                    <div class="entry-section">
+                        <h3 class="entry-section-title">Other examinations</h3>
+                        <p class="entry-text">Performed ECG – showed normal sinus rhythm.</p>
+                    </div>
+
+                    <div class="entry-section">
+                        <h3 class="entry-section-title">Assessment</h3>
+                        <p class="entry-text">Suspicion of viral respiratory infection.</p>
+                    </div>
+
+                    <div class="entry-section">
+                        <h3 class="entry-section-title">Treatment</h3>
+                        <p class="entry-text">Ibuprofen 200 mg × 3 as needed.</p>
+                    </div>
+                </div>
+
+                <div class="entry-content-split">
+                    <div class="entry-column">
+                        <div class="entry-section">
+                            <h3 class="entry-section-title">Findings</h3>
+                            <p class="entry-text">Redness and mild swelling in the throat area, no breathing difficulties.</p>
+                        </div>
+
+                        <div class="entry-section">
+                            <h3 class="entry-section-title-icon">
+                                <i data-lucide="flask-conical"></i>
+                                <span>Lab</span>
+                            </h3>
+                            <p class="entry-text">CRP 45, moderately elevated.</p>
+                        </div>
+
+                        <div class="entry-section">
+                            <h3 class="entry-section-title">Treatment</h3>
+                            <p class="entry-text">Ibuprofen 200 mg × 3 as needed.</p>
+                        </div>
+                    </div>
+
+                    <div class="entry-column">
+                        <div class="entry-section">
+                            <h3 class="entry-section-title">Correspondence</h3>
+                            <p class="entry-text">Outgoing discharge summary. EDI discharge summary to: Espen Fos Djaleta (HER: 8094885), Johannes Test (Sent).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn btn-secondary create-order-btn">
+                    Create order
+                </button>
+            </article>
+
+            <!-- Journal Entry 2 -->
+            <article class="journal-entry">
+                <div class="entry-header">
+                    <div class="entry-timestamp">
+                        <span class="entry-date">17.03.2025 15:42</span>
+                        <span class="entry-duration">Time used: 00:01</span>
+                        <span class="badge badge-warning">eos (unsigned)</span>
+                    </div>
+                </div>
+
+                <div class="entry-content">
+                    <div class="entry-section">
+                        <h3 class="entry-section-title">Medical History</h3>
+                        <p class="entry-text">The patient reports three days of fever, dry cough, and fatigue.</p>
+                    </div>
+
+                    <div class="entry-section">
+                        <h3 class="entry-section-title">Other examinations</h3>
+                        <p class="entry-text">Performed ECG – showed normal sinus rhythm.</p>
+                    </div>
+
+                    <div class="entry-section">
+                        <h3 class="entry-section-title">Assessment</h3>
+                        <p class="entry-text">Suspicion of viral respiratory infection.</p>
+                    </div>
+                </div>
+
+                <div class="entry-content-split">
+                    <div class="entry-column">
+                        <div class="entry-section">
+                            <h3 class="entry-section-title">Findings</h3>
+                            <p class="entry-text">Redness and mild swelling in the throat area, no breathing difficulties.</p>
+                        </div>
+
+                        <div class="entry-section">
+                            <h3 class="entry-section-title-icon">
+                                <i data-lucide="flask-conical"></i>
+                                <span>Lab</span>
+                            </h3>
+                            <p class="entry-text">CRP 45, moderately elevated.</p>
+                        </div>
+                    </div>
+
+                    <div class="entry-column">
+                        <div class="entry-section">
+                            <h3 class="entry-section-title">Treatment</h3>
+                            <p class="entry-text">Ibuprofen 200 mg × 3 as needed.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Tab navigation
+        const tabLinks = document.querySelectorAll('.tab-link');
+        tabLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                tabLinks.forEach(tab => tab.classList.remove('active'));
+                link.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
