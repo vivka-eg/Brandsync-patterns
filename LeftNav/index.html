@@ -20,14 +20,6 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
-    <!-- Mobile Nav Toggle -->
-    <button class="mobile-nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-        <i data-lucide="menu"></i>
-    </button>
-
-    <!-- Mobile Nav Overlay -->
-    <div class="mobile-nav-overlay"></div>
-
     <aside class="left-nav">
         <!-- Header -->
         <div class="nav-header">
@@ -156,9 +148,7 @@
 
         // Navigation elements
         const collapseToggle = document.querySelector('.collapse-toggle');
-        const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
         const leftNav = document.querySelector('.left-nav');
-        const mobileNavOverlay = document.querySelector('.mobile-nav-overlay');
 
         // Collapse toggle functionality
         collapseToggle.addEventListener('click', () => {
@@ -177,26 +167,6 @@
             allNavItems.forEach(item => item.classList.remove('active'));
             allParents.forEach(parent => parent.classList.remove('active'));
         }
-
-        // Mobile menu toggle functionality
-        function toggleMobileNav() {
-            leftNav.classList.toggle('open');
-            mobileNavOverlay.classList.toggle('active');
-            const isOpen = leftNav.classList.contains('open');
-            mobileNavToggle.setAttribute('aria-expanded', isOpen);
-
-            // Change icon
-            const icon = mobileNavToggle.querySelector('[data-lucide]');
-            if (isOpen) {
-                icon.setAttribute('data-lucide', 'x');
-            } else {
-                icon.setAttribute('data-lucide', 'menu');
-            }
-            lucide.createIcons();
-        }
-
-        mobileNavToggle.addEventListener('click', toggleMobileNav);
-        mobileNavOverlay.addEventListener('click', toggleMobileNav);
 
         // Expandable sections functionality
         navSections.forEach(section => {
@@ -231,19 +201,7 @@
 
                 // Add active class to clicked item
                 item.classList.add('active');
-
-                // Close mobile menu if open (on smaller screens)
-                if (window.innerWidth <= 768 && leftNav.classList.contains('open')) {
-                    toggleMobileNav();
-                }
             });
-        });
-
-        // Close menu on escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && leftNav.classList.contains('open')) {
-                toggleMobileNav();
-            }
         });
     </script>
 </body>
