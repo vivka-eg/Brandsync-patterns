@@ -1,16 +1,16 @@
 # Personal Details Page
 
-A responsive medical records interface with collapsible left navigation using token CSS design system with consistent spacing patterns.
+A responsive medical records interface with collapsible Navigation Drawer using token CSS design system with consistent spacing patterns.
 
 ## 🎯 Features
 
-- **Collapsible Left Sidebar**: Toggle between expanded (280px) and collapsed (80px) states
-- **Consistent Spacing**: Matches LeftNav component spacing patterns
+- **Navigation Drawer**: Toggle between expanded (280px) and collapsed (80px) states
+- **Consistent Spacing**: Matches NavigationDrawer component spacing patterns
 - **Easy Logo Replacement**: Multiple logo options with clear documentation
 - **Fully Responsive**: Works seamlessly from desktop to mobile
 - **Dark Mode Support**: Automatic theme switching through token CSS
 
-## 📐 Left Sidebar Navigation
+## 📐 Navigation Drawer
 
 ### Expanded State (280px)
 **Container Structure:**
@@ -40,9 +40,9 @@ A responsive medical records interface with collapsible left navigation using to
 - Click to toggle between states
 - Keyboard accessible (aria-expanded)
 
-## 🎨 Spacing Patterns (Matching LeftNav)
+## 🎨 Spacing Patterns (Matching NavigationDrawer)
 
-This page follows the same spacing patterns as the LeftNav component for consistency:
+This page follows the same spacing patterns as the NavigationDrawer component for consistency:
 
 ### Container Spacing
 - **Main padding**: `var(--spacing-300)` (24px)

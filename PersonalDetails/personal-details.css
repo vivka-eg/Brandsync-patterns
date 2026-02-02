@@ -18,7 +18,7 @@ body {
 }
 
 /* ====================================== */
-/* Left Navigation Sidebar */
+/* Navigation Drawer */
 /* ====================================== */
 
 .left-sidebar {
@@ -281,7 +281,7 @@ body {
 }
 
 /* ====================================== */
-/* Top Navigation Bar */
+/* Navigation Header */
 /* ====================================== */
 
 .top-nav {
@@ -571,6 +571,10 @@ body {
     background-color: var(--neutral-100);
     color: var(--text-default);
     font-weight: var(--font-weight-semibold);
+}
+
+[data-theme="dark"] .tab-link.active {
+    background-color: var(--neutral-600);
 }
 
 /* ====================================== */
@@ -904,25 +908,8 @@ body {
 /* Responsive Design */
 /* ====================================== */
 
-/* Large Tablets and Small Desktops */
+/* Tablets and Below */
 @media (max-width: 1024px) {
-
-    .patient-details {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .entry-content-split {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-300);
-    }
-
-    .main-content {
-        padding: var(--spacing-300);
-    }
-}
-
-/* Tablets */
-@media (max-width: 768px) {
     /* Auto-collapse sidebar on smaller screens */
     .left-sidebar {
         width: 80px;
@@ -968,8 +955,67 @@ body {
         display: none;
     }
 
+    /* Navigation Header */
+    .nav-container {
+        padding: var(--spacing-150) var(--spacing-200);
+        gap: var(--spacing-150);
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .brand-name {
+        font-size: 18px;
+    }
+
+    .action-text {
+        display: none;
+    }
+
+    /* Logo Responsive - Tablets */
+    .logo-container,
+    .logo-icon-container {
+        width: 36px;
+        height: 36px;
+    }
+
+    .logo-square {
+        width: 11px;
+        height: 11px;
+    }
+
+    .logo-square-top {
+        top: 5px;
+        right: 5px;
+    }
+
+    .logo-square-bottom {
+        bottom: 5px;
+        left: 5px;
+    }
+
+    .logo-image {
+        height: 36px;
+    }
+
+    .logo-icon-container [data-lucide] {
+        width: 20px;
+        height: 20px;
+    }
+
+    /* Content */
     .main-content {
         padding: var(--spacing-200);
+    }
+
+    .patient-details {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .entry-content-split {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-300);
     }
 
     /* Personal Details Section */
@@ -1062,6 +1108,46 @@ body {
 
     .main-content {
         padding: var(--spacing-150);
+    }
+
+    .nav-container {
+        padding: var(--spacing-100) var(--spacing-150);
+        gap: var(--spacing-100);
+    }
+
+    /* Logo Responsive - Mobile */
+    .logo-container,
+    .logo-icon-container {
+        width: 32px;
+        height: 32px;
+    }
+
+    .logo-square {
+        width: 9px;
+        height: 9px;
+    }
+
+    .logo-square-top {
+        top: 5px;
+        right: 5px;
+    }
+
+    .logo-square-bottom {
+        bottom: 5px;
+        left: 5px;
+    }
+
+    .logo-image {
+        height: 32px;
+    }
+
+    .logo-icon-container [data-lucide] {
+        width: 18px;
+        height: 18px;
+    }
+
+    .brand-name {
+        font-size: 16px;
     }
 
     .icon-button [data-lucide] {
@@ -1232,6 +1318,14 @@ body {
 @media (max-width: 360px) {
     .main-content {
         padding: var(--spacing-100);
+    }
+
+    .nav-container {
+        padding: var(--spacing-75) var(--spacing-100);
+    }
+
+    .brand-name {
+        font-size: 14px;
     }
 
     .patient-info-card {
