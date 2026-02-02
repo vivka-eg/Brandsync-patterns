@@ -907,21 +907,6 @@ body {
 /* Large Tablets and Small Desktops */
 @media (max-width: 1024px) {
 
-    /* Top Nav */
-    .nav-links {
-        gap: var(--spacing-150);
-        padding-left: var(--spacing-200);
-    }
-
-    .nav-link {
-        font-size: var(--font-size-small);
-        padding: var(--spacing-75) var(--spacing-100);
-    }
-
-    .action-text {
-        display: none;
-    }
-
     .patient-details {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -985,50 +970,6 @@ body {
 
     .main-content {
         padding: var(--spacing-200);
-    }
-
-    .nav-container {
-        padding: var(--spacing-150) var(--spacing-200);
-        gap: var(--spacing-150);
-    }
-
-    .nav-links {
-        display: none;
-    }
-
-    .brand-name {
-        font-size: 18px;
-    }
-
-    /* Logo Responsive - Tablets */
-    .logo-container,
-    .logo-icon-container {
-        width: 36px;
-        height: 36px;
-    }
-
-    .logo-square {
-        width: 11px;
-        height: 11px;
-    }
-
-    .logo-square-top {
-        top: 5px;
-        right: 5px;
-    }
-
-    .logo-square-bottom {
-        bottom: 5px;
-        left: 5px;
-    }
-
-    .logo-image {
-        height: 36px;
-    }
-
-    .logo-icon-container [data-lucide] {
-        width: 20px;
-        height: 20px;
     }
 
     /* Personal Details Section */
@@ -1121,46 +1062,6 @@ body {
 
     .main-content {
         padding: var(--spacing-150);
-    }
-
-    .nav-container {
-        padding: var(--spacing-100) var(--spacing-150);
-        gap: var(--spacing-100);
-    }
-
-    /* Logo Responsive - Mobile */
-    .logo-container,
-    .logo-icon-container {
-        width: 32px;
-        height: 32px;
-    }
-
-    .logo-square {
-        width: 9px;
-        height: 9px;
-    }
-
-    .logo-square-top {
-        top: 5px;
-        right: 5px;
-    }
-
-    .logo-square-bottom {
-        bottom: 5px;
-        left: 5px;
-    }
-
-    .logo-image {
-        height: 32px;
-    }
-
-    .logo-icon-container [data-lucide] {
-        width: 18px;
-        height: 18px;
-    }
-
-    .brand-name {
-        font-size: 16px;
     }
 
     .icon-button [data-lucide] {
@@ -1331,14 +1232,6 @@ body {
 @media (max-width: 360px) {
     .main-content {
         padding: var(--spacing-100);
-    }
-
-    .nav-container {
-        padding: var(--spacing-75) var(--spacing-100);
-    }
-
-    .brand-name {
-        font-size: 14px;
     }
 
     .patient-info-card {
