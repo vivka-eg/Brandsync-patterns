@@ -58,6 +58,12 @@ body {
     padding-bottom: var(--spacing-150);
 }
 
+.sidebar-logo-svg {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+}
+
 .sidebar-logo .logo-container {
     flex-shrink: 0;
 }
@@ -318,6 +324,13 @@ body {
     font-weight: var(--font-weight-semibold);
     color: var(--text-default);
     white-space: nowrap;
+}
+
+/* Logo Icon SVG */
+.logo-icon {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
 }
 
 /* Default Geometric Logo */

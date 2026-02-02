@@ -67,6 +67,23 @@ body {
     gap: var(--spacing-100);
 }
 
+.nav-logo {
+    height: 44px;
+    width: auto;
+    flex-shrink: 0;
+    color: var(--text-default);
+    transition: var(--transition-default);
+}
+
+.left-nav.collapsed .nav-logo {
+    width: 44px;
+    height: 44px;
+}
+
+.left-nav.collapsed .logo-text {
+    display: none;
+}
+
 .nav-title {
     font-size: 28px;
     font-weight: var(--font-weight-bold);
@@ -99,6 +116,10 @@ body {
     transition: var(--transition-default);
     position: relative;
     flex-shrink: 0;
+}
+
+.left-nav.collapsed .theme-toggle-btn {
+    display: none;
 }
 
 .theme-toggle-btn:hover {
