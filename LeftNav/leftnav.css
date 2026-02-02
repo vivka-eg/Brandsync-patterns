@@ -29,7 +29,16 @@ body {
     display: flex;
     flex-direction: column;
     padding: var(--spacing-300);
-    gap: var(--spacing-300);
+    gap: var(--spacing-100);
+    position: relative;
+    transition: width 0.3s ease;
+    overflow: hidden;
+}
+
+.left-nav.collapsed {
+    width: 80px;
+    padding-left: var(--spacing-150);
+    padding-right: var(--spacing-150);
 }
 
 /* ====================================== */
@@ -38,6 +47,11 @@ body {
 
 .nav-header {
     padding-bottom: var(--spacing-200);
+    transition: var(--transition-default);
+}
+
+.left-nav.collapsed .nav-header {
+    padding-bottom: var(--spacing-150);
 }
 
 .nav-header-content {
@@ -45,6 +59,12 @@ body {
     align-items: center;
     justify-content: space-between;
     gap: var(--spacing-150);
+    transition: var(--transition-default);
+}
+
+.left-nav.collapsed .nav-header-content {
+    flex-direction: column;
+    gap: var(--spacing-100);
 }
 
 .nav-title {
@@ -52,6 +72,16 @@ body {
     font-weight: var(--font-weight-bold);
     color: var(--text-default);
     font-family: var(--font-family-heading);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: var(--transition-default);
+}
+
+.left-nav.collapsed .nav-title {
+    font-size: 0;
+    opacity: 0;
+    height: 0;
 }
 
 /* Theme Toggle */
@@ -107,6 +137,56 @@ body {
 }
 
 /* ====================================== */
+/* Collapse Toggle */
+/* ====================================== */
+
+.collapse-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: var(--transition-default);
+    padding: 0;
+}
+
+.collapse-toggle:focus {
+    outline: none;
+}
+
+.menu-text {
+    font-size: var(--font-size-medium);
+    font-weight: var(--font-weight-medium);
+    color: var(--text-default);
+    transition: opacity 0.3s ease;
+}
+
+.left-nav.collapsed .menu-text {
+    opacity: 0;
+    width: 0;
+    overflow: hidden;
+}
+
+.chevron-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-150);
+    flex-shrink: 0;
+}
+
+.collapse-toggle [data-lucide] {
+    width: 18px;
+    height: 18px;
+    color: var(--icon-secondary);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+.left-nav.collapsed .collapse-toggle {
+    justify-content: center;
+}
+
+/* ====================================== */
 /* Search */
 /* ====================================== */
 
@@ -119,6 +199,12 @@ body {
     border: var(--border-width-thin) solid var(--border-default);
     border-radius: var(--border-radius-100);
     transition: var(--transition-default);
+}
+
+.left-nav.collapsed .search-container {
+    padding: var(--spacing-150);
+    justify-content: center;
+    gap: 0;
 }
 
 .search-container:focus-within {
@@ -141,6 +227,11 @@ body {
     font-size: var(--font-size-medium);
     font-family: var(--font-family-body);
     color: var(--text-default);
+    transition: var(--transition-default);
+}
+
+.left-nav.collapsed .search-input {
+    display: none;
 }
 
 .search-input::placeholder {
@@ -154,8 +245,12 @@ body {
 .nav-menu {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-50);
+    gap: var(--spacing-100);
     overflow-y: auto;
+}
+
+.left-nav.collapsed .nav-menu {
+    overflow: hidden;
 }
 
 /* Navigation Items */
@@ -175,6 +270,35 @@ body {
     background: none;
     width: 100%;
     text-align: left;
+    position: relative;
+}
+
+.left-nav.collapsed .nav-item {
+    justify-content: center;
+    padding: var(--spacing-150);
+    gap: 0;
+}
+
+/* Tooltip for collapsed state */
+.left-nav.collapsed .nav-item::after {
+    content: attr(title);
+    position: absolute;
+    left: calc(100% + var(--spacing-150));
+    padding: var(--spacing-100) var(--spacing-150);
+    background-color: var(--surface-inverse);
+    color: var(--text-inverse);
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-regular);
+    white-space: nowrap;
+    border-radius: var(--border-radius-75);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+    z-index: 1000;
+}
+
+.left-nav.collapsed .nav-item:hover::after {
+    opacity: 1;
 }
 
 .nav-item:hover {
@@ -190,9 +314,13 @@ body {
 }
 
 .nav-item.active {
-    background-color: var(--color-primary-container);
-    color: var(--color-primary-default);
-    font-weight: var(--font-weight-medium);
+    background-color: var(--neutral-100);
+    color: var(--text-default);
+    font-weight: var(--font-weight-semibold);
+}
+
+[data-theme="dark"] .nav-item.active {
+    background-color: var(--neutral-600);
 }
 
 .nav-icon {
@@ -203,11 +331,19 @@ body {
 }
 
 .nav-item.active .nav-icon {
-    color: var(--color-primary-default);
+    color: var(--icon-default);
 }
 
 .nav-label {
     flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: var(--transition-default);
+}
+
+.left-nav.collapsed .nav-label {
+    display: none;
 }
 
 /* ====================================== */
@@ -229,12 +365,16 @@ body {
 }
 
 .nav-parent.active {
-    background-color: var(--color-primary-container);
-    color: var(--color-primary-default);
+    background-color: var(--neutral-100);
+    color: var(--text-default);
+}
+
+[data-theme="dark"] .nav-parent.active {
+    background-color: var(--neutral-600);
 }
 
 .nav-parent.active .nav-icon {
-    color: var(--color-primary-default);
+    color: var(--icon-default);
 }
 
 .expand-icon {
@@ -250,7 +390,11 @@ body {
 }
 
 .nav-parent.active .expand-icon {
-    color: var(--color-primary-default);
+    color: var(--icon-default);
+}
+
+.left-nav.collapsed .expand-icon {
+    display: none;
 }
 
 /* Submenu */
@@ -266,9 +410,17 @@ body {
     display: flex;
 }
 
+.left-nav.collapsed .nav-submenu {
+    display: none !important;
+}
+
 .nav-child {
     font-size: var(--font-size-small);
     padding: var(--spacing-100) var(--spacing-200);
+}
+
+.left-nav.collapsed .nav-child {
+    padding: var(--spacing-100);
 }
 
 /* ====================================== */
@@ -333,6 +485,12 @@ body {
     .left-nav {
         width: 280px;
         padding: var(--spacing-250);
+    }
+
+    .left-nav.collapsed {
+        width: 70px;
+        padding-left: var(--spacing-150);
+        padding-right: var(--spacing-150);
     }
 
     .nav-title {
@@ -405,5 +563,10 @@ body {
 
     .search-container {
         padding: var(--spacing-100) var(--spacing-150);
+    }
+
+    .left-nav.collapsed .search-container {
+        padding: var(--spacing-150);
+        gap: 0;
     }
 }

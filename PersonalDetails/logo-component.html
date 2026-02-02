@@ -1,0 +1,115 @@
+<!-- ============================================ -->
+<!-- LOGO COMPONENT - Reusable Logo Block        -->
+<!-- ============================================ -->
+<!--
+    HOW TO USE THIS COMPONENT:
+    1. Copy this entire block into your navigation
+    2. Replace with your own logo by editing one of the options below
+    3. Keep the .nav-brand and .logo-container structure for consistent styling
+-->
+
+<!-- ============================================ -->
+<!-- OPTION 1: Current Default Logo (Geometric)  -->
+<!-- ============================================ -->
+<div class="nav-brand">
+    <div class="logo-container">
+        <div class="logo-square logo-square-top"></div>
+        <div class="logo-square logo-square-bottom"></div>
+    </div>
+    <span class="brand-name">EG Infodoc</span>
+</div>
+
+<!-- ============================================ -->
+<!-- OPTION 2: Image/SVG Logo                    -->
+<!-- ============================================ -->
+<!--
+<div class="nav-brand">
+    <img src="path/to/logo.svg" alt="Company Logo" class="logo-image">
+    <span class="brand-name">Company Name</span>
+</div>
+-->
+
+<!-- ============================================ -->
+<!-- OPTION 3: Text-Only Logo                    -->
+<!-- ============================================ -->
+<!--
+<div class="nav-brand">
+    <span class="brand-name">Your Brand Name</span>
+</div>
+-->
+
+<!-- ============================================ -->
+<!-- OPTION 4: Icon + Text Logo                  -->
+<!-- ============================================ -->
+<!--
+<div class="nav-brand">
+    <div class="logo-icon-container">
+        <i data-lucide="heart-pulse"></i>
+    </div>
+    <span class="brand-name">MedTech</span>
+</div>
+-->
+
+<!-- ============================================ -->
+<!-- CSS REQUIRED FOR LOGO COMPONENTS            -->
+<!-- ============================================ -->
+<!--
+Add this to your CSS file if using custom options:
+
+/* Logo Image */
+.logo-image {
+    height: 40px;
+    width: auto;
+}
+
+/* Logo Icon Container */
+.logo-icon-container {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-primary-default);
+    border-radius: var(--border-radius-100);
+    color: var(--text-on-action);
+}
+
+.logo-icon-container [data-lucide] {
+    width: 24px;
+    height: 24px;
+}
+
+Responsive adjustments:
+
+@media (max-width: 768px) {
+    .logo-image {
+        height: 36px;
+    }
+
+    .logo-icon-container {
+        width: 36px;
+        height: 36px;
+    }
+
+    .logo-icon-container [data-lucide] {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-image {
+        height: 32px;
+    }
+
+    .logo-icon-container {
+        width: 32px;
+        height: 32px;
+    }
+
+    .logo-icon-container [data-lucide] {
+        width: 18px;
+        height: 18px;
+    }
+}
+-->

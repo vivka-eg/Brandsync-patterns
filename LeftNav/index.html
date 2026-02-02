@@ -40,6 +40,14 @@
             </div>
         </div>
 
+        <!-- Main Menu Toggle -->
+        <div class="collapse-toggle" role="button" tabindex="0" aria-expanded="true">
+            <span class="menu-text">Main Menu</span>
+            <span class="chevron-container">
+                <i data-lucide="chevron-left"></i>
+            </span>
+        </div>
+
         <!-- Search -->
         <div class="search-container">
             <i data-lucide="search" class="search-icon"></i>
@@ -49,69 +57,69 @@
         <!-- Navigation Menu -->
         <nav class="nav-menu">
             <!-- Simple Links -->
-            <a href="#" class="nav-item">
+            <a href="#" class="nav-item" title="Introduction">
                 <i data-lucide="file-text" class="nav-icon"></i>
                 <span class="nav-label">Introduction</span>
             </a>
 
-            <a href="#" class="nav-item">
+            <a href="#" class="nav-item" title="Quick Start Guide">
                 <i data-lucide="book-open" class="nav-icon"></i>
                 <span class="nav-label">Quick Start Guide</span>
             </a>
 
-            <a href="#" class="nav-item">
+            <a href="#" class="nav-item" title="Implementation Planner">
                 <i data-lucide="rocket" class="nav-icon"></i>
                 <span class="nav-label">Implementation Planner</span>
             </a>
 
-            <a href="#" class="nav-item">
+            <a href="#" class="nav-item" title="Accessibility">
                 <i data-lucide="accessibility" class="nav-icon"></i>
                 <span class="nav-label">Accessibility</span>
             </a>
 
-            <a href="#" class="nav-item">
+            <a href="#" class="nav-item" title="Design Philosophy">
                 <i data-lucide="lightbulb" class="nav-icon"></i>
                 <span class="nav-label">Design Philosophy</span>
             </a>
 
-            <a href="#" class="nav-item">
+            <a href="#" class="nav-item" title="For Designers">
                 <i data-lucide="pen-tool" class="nav-icon"></i>
                 <span class="nav-label">For Designers</span>
             </a>
 
-            <a href="#" class="nav-item">
+            <a href="#" class="nav-item" title="Accessible Palettes">
                 <i data-lucide="palette" class="nav-icon"></i>
                 <span class="nav-label">Accessible Palettes</span>
             </a>
 
             <!-- Expandable Section - Foundation -->
             <div class="nav-section">
-                <button class="nav-item nav-parent" aria-expanded="false">
+                <button class="nav-item nav-parent" aria-expanded="false" title="Foundation">
                     <i data-lucide="more-horizontal" class="nav-icon"></i>
                     <span class="nav-label">Foundation</span>
                     <i data-lucide="chevron-down" class="expand-icon"></i>
                 </button>
                 <div class="nav-submenu">
-                    <a href="#" class="nav-item nav-child">Colors</a>
-                    <a href="#" class="nav-item nav-child">Typography</a>
-                    <a href="#" class="nav-item nav-child">Spacing</a>
-                    <a href="#" class="nav-item nav-child">Elevation</a>
+                    <a href="#" class="nav-item nav-child" title="Colors">Colors</a>
+                    <a href="#" class="nav-item nav-child" title="Typography">Typography</a>
+                    <a href="#" class="nav-item nav-child" title="Spacing">Spacing</a>
+                    <a href="#" class="nav-item nav-child" title="Elevation">Elevation</a>
                 </div>
             </div>
 
             <!-- Expandable Section - Components -->
             <div class="nav-section">
-                <button class="nav-item nav-parent" aria-expanded="false">
+                <button class="nav-item nav-parent" aria-expanded="false" title="Components">
                     <i data-lucide="layout-grid" class="nav-icon"></i>
                     <span class="nav-label">Components</span>
                     <i data-lucide="chevron-down" class="expand-icon"></i>
                 </button>
                 <div class="nav-submenu">
-                    <a href="#" class="nav-item nav-child">Buttons</a>
-                    <a href="#" class="nav-item nav-child">Input Fields</a>
-                    <a href="#" class="nav-item nav-child">Cards</a>
-                    <a href="#" class="nav-item nav-child">Navigation</a>
-                    <a href="#" class="nav-item nav-child">Modals</a>
+                    <a href="#" class="nav-item nav-child" title="Buttons">Buttons</a>
+                    <a href="#" class="nav-item nav-child" title="Input Fields">Input Fields</a>
+                    <a href="#" class="nav-item nav-child" title="Cards">Cards</a>
+                    <a href="#" class="nav-item nav-child" title="Navigation">Navigation</a>
+                    <a href="#" class="nav-item nav-child" title="Modals">Modals</a>
                 </div>
             </div>
         </nav>
@@ -146,10 +154,23 @@
         const allParents = document.querySelectorAll('.nav-parent');
         const navSections = document.querySelectorAll('.nav-section');
 
-        // Mobile menu elements
+        // Navigation elements
+        const collapseToggle = document.querySelector('.collapse-toggle');
         const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
         const leftNav = document.querySelector('.left-nav');
         const mobileNavOverlay = document.querySelector('.mobile-nav-overlay');
+
+        // Collapse toggle functionality
+        collapseToggle.addEventListener('click', () => {
+            leftNav.classList.toggle('collapsed');
+            const isCollapsed = leftNav.classList.contains('collapsed');
+            collapseToggle.setAttribute('aria-expanded', !isCollapsed);
+
+            // Rotate chevron icon
+            const icon = collapseToggle.querySelector('[data-lucide]');
+            icon.setAttribute('data-lucide', isCollapsed ? 'chevron-right' : 'chevron-left');
+            lucide.createIcons();
+        });
 
         // Function to remove all active states
         function removeAllActiveStates() {
