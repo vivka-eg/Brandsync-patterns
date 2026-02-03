@@ -1,77 +1,20 @@
 /* ====================================== */
-/* Personal Details Styles                */
+/* Personal Details Component Styles     */
+/* Layout handled by dashboard-layout.css */
 /* ====================================== */
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: var(--font-family-body);
-    background-color: var(--surface-container);
-    color: var(--text-default);
-    line-height: 1.5;
-    min-height: 100vh;
-    display: flex;
-}
-
 /* ====================================== */
-/* Navigation Drawer */
+/* Navigation Drawer Components          */
 /* ====================================== */
 
-.left-sidebar {
-    width: 280px;
-    min-height: 100vh;
-    background-color: var(--surface-base);
-    border-right: var(--border-width-thin) solid var(--border-default);
-    display: flex;
-    flex-direction: column;
-    padding: var(--spacing-300);
-    gap: var(--spacing-100);
-    position: relative;
-    transition: width 0.3s ease;
-    overflow: hidden;
-}
-
-.left-sidebar.collapsed {
-    width: 80px;
-    padding-left: var(--spacing-150);
-    padding-right: var(--spacing-150);
-}
-
-/* ====================================== */
-/* Sidebar Logo */
-/* ====================================== */
-
-.sidebar-logo {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding-bottom: var(--spacing-200);
-    transition: var(--transition-default);
-}
-
-.left-sidebar.collapsed .sidebar-logo {
-    justify-content: center;
-    padding-bottom: var(--spacing-150);
-}
-
+/* Logo SVG */
 .sidebar-logo-svg {
     width: 40px;
     height: 40px;
     flex-shrink: 0;
 }
 
-.sidebar-logo .logo-container {
-    flex-shrink: 0;
-}
-
-/* ====================================== */
 /* Collapse Toggle */
-/* ====================================== */
-
 .collapse-toggle {
     display: flex;
     align-items: center;
@@ -79,6 +22,9 @@ body {
     cursor: pointer;
     transition: var(--transition-default);
     padding: 0;
+    border: none;
+    background: none;
+    width: 100%;
 }
 
 .collapse-toggle:focus {
@@ -92,7 +38,7 @@ body {
     transition: opacity 0.3s ease;
 }
 
-.left-sidebar.collapsed .menu-text {
+.left-nav.collapsed .menu-text {
     opacity: 0;
     width: 0;
     overflow: hidden;
@@ -114,14 +60,11 @@ body {
     flex-shrink: 0;
 }
 
-.left-sidebar.collapsed .collapse-toggle {
+.left-nav.collapsed .collapse-toggle {
     justify-content: center;
 }
 
-/* ====================================== */
 /* Search */
-/* ====================================== */
-
 .sidebar-search {
     display: flex;
     align-items: center;
@@ -133,7 +76,7 @@ body {
     transition: var(--transition-default);
 }
 
-.left-sidebar.collapsed .sidebar-search {
+.left-nav.collapsed .sidebar-search {
     padding: var(--spacing-150);
     justify-content: center;
     gap: 0;
@@ -162,27 +105,12 @@ body {
     transition: var(--transition-default);
 }
 
-.left-sidebar.collapsed .sidebar-search-input {
+.left-nav.collapsed .sidebar-search-input {
     display: none;
 }
 
 .sidebar-search-input::placeholder {
     color: var(--text-muted);
-}
-
-/* ====================================== */
-/* Navigation Menu */
-/* ====================================== */
-
-.sidebar-menu {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-100);
-    overflow-y: auto;
-}
-
-.left-sidebar.collapsed .sidebar-menu {
-    overflow: hidden;
 }
 
 /* Navigation Items */
@@ -205,14 +133,14 @@ body {
     position: relative;
 }
 
-.left-sidebar.collapsed .sidebar-item {
+.left-nav.collapsed .sidebar-item {
     justify-content: center;
     padding: var(--spacing-150);
     gap: 0;
 }
 
 /* Tooltip for collapsed state */
-.left-sidebar.collapsed .sidebar-item::after {
+.left-nav.collapsed .sidebar-item::after {
     content: attr(title);
     position: absolute;
     left: calc(100% + var(--spacing-150));
@@ -229,7 +157,7 @@ body {
     z-index: 1000;
 }
 
-.left-sidebar.collapsed .sidebar-item:hover::after {
+.left-nav.collapsed .sidebar-item:hover::after {
     opacity: 1;
 }
 
@@ -274,45 +202,15 @@ body {
     transition: var(--transition-default);
 }
 
-.left-sidebar.collapsed .sidebar-label {
+.left-nav.collapsed .sidebar-label {
     display: none;
 }
 
-/* Page Container */
-.page-container {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
 /* ====================================== */
-/* Navigation Header */
+/* Top Navigation Components             */
 /* ====================================== */
 
-.top-nav {
-    background-color: var(--surface-base);
-    border-bottom: var(--border-width-thin) solid var(--border-default);
-    position: sticky;
-    top: 0;
-    z-index: 90;
-    width: 100%;
-}
-
-.nav-container {
-    max-width: 1920px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: var(--spacing-300);
-    gap: var(--spacing-300);
-}
-
-/* ====================================== */
-/* Logo Component (Easy to Replace)      */
-/* ====================================== */
-
+/* Logo Component */
 .nav-brand {
     display: flex;
     align-items: center;
@@ -326,68 +224,10 @@ body {
     white-space: nowrap;
 }
 
-/* Logo Icon SVG */
 .logo-icon {
     width: 40px;
     height: 40px;
     flex-shrink: 0;
-}
-
-/* Default Geometric Logo */
-.logo-container {
-    position: relative;
-    width: 40px;
-    height: 40px;
-    border: var(--border-width-medium) solid var(--neutral-300);
-    border-radius: var(--border-radius-100);
-    background-color: var(--surface-base);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-}
-
-.logo-square {
-    position: absolute;
-    width: 12px;
-    height: 12px;
-    background-color: var(--primary-600);
-    border-radius: var(--border-radius-50);
-}
-
-.logo-square-top {
-    top: 6px;
-    right: 6px;
-}
-
-.logo-square-bottom {
-    bottom: 6px;
-    left: 6px;
-}
-
-/* Image Logo Option */
-.logo-image {
-    height: 40px;
-    width: auto;
-    flex-shrink: 0;
-}
-
-/* Icon Logo Option */
-.logo-icon-container {
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--color-primary-default);
-    border-radius: var(--border-radius-100);
-    color: var(--text-on-action);
-    flex-shrink: 0;
-}
-
-.logo-icon-container [data-lucide] {
-    width: 24px;
-    height: 24px;
 }
 
 /* Navigation Links */
@@ -395,7 +235,6 @@ body {
     display: flex;
     align-items: center;
     gap: var(--spacing-200);
-    flex: 1;
     padding-left: var(--spacing-300);
 }
 
@@ -425,13 +264,7 @@ body {
     font-weight: var(--font-weight-semibold);
 }
 
-/* Navigation Actions */
-.nav-actions {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-150);
-}
-
+/* Icon Buttons */
 .icon-button {
     display: flex;
     align-items: center;
@@ -468,33 +301,38 @@ body {
     height: 20px;
 }
 
-/* ====================================== */
-/* Main Content */
-/* ====================================== */
-
-.main-content {
-    max-width: 1920px;
-    margin: 0 auto;
-    padding: var(--spacing-300);
+/* Mobile Menu Toggle */
+.mobile-menu-toggle {
     display: flex;
-    flex-direction: column;
-    gap: var(--spacing-300);
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-100);
+    background: none;
+    border: none;
+    border-radius: var(--border-radius-75);
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: var(--transition-default);
+}
+
+.mobile-menu-toggle:hover {
+    background-color: var(--surface-hover);
+    color: var(--text-default);
+}
+
+.mobile-menu-toggle [data-lucide] {
+    width: 24px;
+    height: 24px;
 }
 
 /* ====================================== */
-/* Personal Details Header */
+/* Personal Details Header               */
 /* ====================================== */
 
 .personal-details-header {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-300);
-}
-
-.section-title {
-    font-size: 24px;
-    font-weight: var(--font-weight-semibold);
-    color: var(--text-default);
 }
 
 .patient-info-card {
@@ -549,7 +387,7 @@ body {
 }
 
 /* ====================================== */
-/* Tabs Navigation */
+/* Tabs Navigation                        */
 /* ====================================== */
 
 .tabs-nav {
@@ -591,7 +429,7 @@ body {
 }
 
 /* ====================================== */
-/* Journal Actions Bar */
+/* Journal Actions Bar                    */
 /* ====================================== */
 
 .journal-actions {
@@ -779,13 +617,6 @@ body {
     box-shadow: 0 0 0 3px var(--color-primary-container);
 }
 
-.search-icon {
-    width: 20px;
-    height: 20px;
-    color: var(--icon-secondary);
-    flex-shrink: 0;
-}
-
 .search-input {
     flex: 1;
     border: none;
@@ -801,7 +632,7 @@ body {
 }
 
 /* ====================================== */
-/* Journal Entries */
+/* Journal Entries                        */
 /* ====================================== */
 
 .journal-entries {
@@ -918,64 +749,13 @@ body {
 }
 
 /* ====================================== */
-/* Responsive Design */
+/* Responsive Design                      */
 /* ====================================== */
 
 /* Tablets and Below */
 @media (max-width: 1024px) {
-    /* Auto-collapse sidebar on smaller screens */
-    .left-sidebar {
-        width: 80px;
-        padding-left: var(--spacing-150);
-        padding-right: var(--spacing-150);
-    }
-
-    .sidebar-logo {
-        justify-content: center;
-    }
-
-    .menu-text {
-        opacity: 0;
-        width: 0;
-        overflow: hidden;
-    }
-
-    .collapse-toggle {
-        justify-content: center;
-    }
-
-    .sidebar-search {
-        padding: var(--spacing-150);
-        justify-content: center;
-        gap: 0;
-    }
-
-    .sidebar-search-input {
-        display: none;
-    }
-
-    .sidebar-menu {
-        overflow: hidden;
-    }
-
-    .sidebar-item {
-        justify-content: center;
-        padding: var(--spacing-150);
-        gap: 0;
-    }
-
-    .sidebar-label {
-        display: none;
-    }
-
-    /* Navigation Header */
-    .nav-container {
-        padding: var(--spacing-150) var(--spacing-200);
-        gap: var(--spacing-150);
-    }
-
     .nav-links {
-        display: none;
+        padding-left: 0;
     }
 
     .brand-name {
@@ -986,40 +766,9 @@ body {
         display: none;
     }
 
-    /* Logo Responsive - Tablets */
-    .logo-container,
-    .logo-icon-container {
+    .logo-icon {
         width: 36px;
         height: 36px;
-    }
-
-    .logo-square {
-        width: 11px;
-        height: 11px;
-    }
-
-    .logo-square-top {
-        top: 5px;
-        right: 5px;
-    }
-
-    .logo-square-bottom {
-        bottom: 5px;
-        left: 5px;
-    }
-
-    .logo-image {
-        height: 36px;
-    }
-
-    .logo-icon-container [data-lucide] {
-        width: 20px;
-        height: 20px;
-    }
-
-    /* Content */
-    .main-content {
-        padding: var(--spacing-200);
     }
 
     .patient-details {
@@ -1029,11 +778,6 @@ body {
     .entry-content-split {
         grid-template-columns: 1fr;
         gap: var(--spacing-300);
-    }
-
-    /* Personal Details Section */
-    .section-title {
-        font-size: 20px;
     }
 
     .patient-info-card {
@@ -1057,7 +801,6 @@ body {
         gap: var(--spacing-200);
     }
 
-    /* Tabs */
     .tabs-nav {
         padding: var(--spacing-75);
         gap: var(--spacing-100);
@@ -1068,7 +811,6 @@ body {
         padding: var(--spacing-75) var(--spacing-150);
     }
 
-    /* Journal Actions */
     .journal-actions {
         flex-direction: column;
         align-items: stretch;
@@ -1100,13 +842,8 @@ body {
         width: 100%;
     }
 
-    /* Journal Entries */
     .journal-entry {
         padding: var(--spacing-250);
-    }
-
-    .entry-content-split {
-        grid-template-columns: 1fr;
     }
 
     .entry-timestamp {
@@ -1118,45 +855,9 @@ body {
 
 /* Mobile Devices */
 @media (max-width: 480px) {
-
-    .main-content {
-        padding: var(--spacing-150);
-    }
-
-    .nav-container {
-        padding: var(--spacing-100) var(--spacing-150);
-        gap: var(--spacing-100);
-    }
-
-    /* Logo Responsive - Mobile */
-    .logo-container,
-    .logo-icon-container {
+    .logo-icon {
         width: 32px;
         height: 32px;
-    }
-
-    .logo-square {
-        width: 9px;
-        height: 9px;
-    }
-
-    .logo-square-top {
-        top: 5px;
-        right: 5px;
-    }
-
-    .logo-square-bottom {
-        bottom: 5px;
-        left: 5px;
-    }
-
-    .logo-image {
-        height: 32px;
-    }
-
-    .logo-icon-container [data-lucide] {
-        width: 18px;
-        height: 18px;
     }
 
     .brand-name {
@@ -1166,16 +867,6 @@ body {
     .icon-button [data-lucide] {
         width: 18px;
         height: 18px;
-    }
-
-    /* Personal Details Section */
-    .section-title {
-        font-size: 18px;
-        margin-bottom: var(--spacing-200);
-    }
-
-    .personal-details-header {
-        margin-bottom: var(--spacing-300);
     }
 
     .patient-info-card {
@@ -1204,10 +895,8 @@ body {
         font-size: var(--font-size-small);
     }
 
-    /* Tabs */
     .tabs-nav {
         padding: var(--spacing-50);
-        margin-bottom: var(--spacing-200);
     }
 
     .tab-link {
@@ -1215,7 +904,6 @@ body {
         padding: var(--spacing-75) var(--spacing-100);
     }
 
-    /* Journal Actions */
     .journal-actions {
         padding: var(--spacing-150);
         gap: var(--spacing-200);
@@ -1225,7 +913,6 @@ body {
         gap: var(--spacing-100);
     }
 
-    /* Hide button text on mobile, show only icons */
     .btn:not(.btn-primary):not(.btn-secondary) span {
         display: none;
     }
@@ -1263,7 +950,6 @@ body {
         font-size: var(--font-size-small);
     }
 
-    /* Journal Entries */
     .journal-entries {
         gap: var(--spacing-200);
     }
@@ -1324,32 +1010,5 @@ body {
 
     .create-order-btn {
         width: 100%;
-    }
-}
-
-/* Extra Small Devices */
-@media (max-width: 360px) {
-    .main-content {
-        padding: var(--spacing-100);
-    }
-
-    .nav-container {
-        padding: var(--spacing-75) var(--spacing-100);
-    }
-
-    .brand-name {
-        font-size: 14px;
-    }
-
-    .patient-info-card {
-        padding: var(--spacing-150);
-    }
-
-    .journal-actions {
-        padding: var(--spacing-100);
-    }
-
-    .journal-entry {
-        padding: var(--spacing-150);
     }
 }

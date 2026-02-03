@@ -1,0 +1,339 @@
+/* ====================================== */
+/* DASHBOARD LAYOUT TEMPLATE             */
+/* Pure layout structure only            */
+/* No component-specific styles          */
+/* ====================================== */
+
+/*
+PURPOSE:
+This file contains ONLY layout positioning, sizing, and flexbox structure.
+It does NOT include component styles (buttons, forms, icons, dropdowns).
+
+USE THIS FOR:
+- Fixing layout alignment issues
+- Understanding the flex layout structure
+- Reference for navigation drawer and content area positioning
+- Responsive breakpoint reference
+
+DO NOT USE THIS FOR:
+- Component styling (buttons, inputs, cards, tables)
+- Interactive element styles
+- Icon or typography details
+
+KEY LAYOUT PROPERTIES:
+- .dashboard-container: display: flex (horizontal layout)
+- .left-nav: width: 320px (expanded) or 80px (collapsed)
+- .main-content: flex: 1 (takes remaining space)
+- .top-nav: position: sticky (stays at top)
+- .content-area: flex: 1 (expands to fill space)
+
+RESPONSIVE BREAKPOINTS:
+- 1096px: Hide search areas
+- 1024px: Tablet adjustments
+- 768px:  Mobile (navigation off-canvas)
+- 480px:  Small mobile
+
+DESIGN TOKENS USED:
+- Spacing: --spacing-100 to --spacing-400
+- Colors: --surface-base, --surface-container
+- Borders: --border-width-thin, --border-default
+- Typography: --font-family-body, --font-weight-*
+- Transitions: --transition-default
+
+WHAT THIS FILE EXCLUDES:
+❌ Button styles (primary, secondary, icon)
+❌ Form inputs and controls
+❌ Search bars and text fields
+❌ Icons and icon buttons
+❌ Dropdowns and menus
+❌ Cards and panels
+❌ Tables and data grids
+❌ Badges and status indicators
+
+Use existing component files for these elements.
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family-body);
+    background-color: var(--surface-container);
+    color: var(--text-default);
+    line-height: 1.5;
+}
+
+/* ====================================== */
+/* MAIN LAYOUT STRUCTURE                 */
+/* ====================================== */
+
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+}
+
+/* ====================================== */
+/* LEFT NAVIGATION DRAWER LAYOUT         */
+/* ====================================== */
+
+.left-nav {
+    width: 320px;
+    min-height: 100vh;
+    background-color: var(--surface-base);
+    border-right: var(--border-width-thin) solid var(--border-default);
+    display: flex;
+    flex-direction: column;
+    padding: var(--spacing-300);
+    gap: var(--spacing-100);
+    position: relative;
+    transition: width 0.3s ease;
+    overflow: hidden;
+}
+
+/* Collapsed state */
+.left-nav.collapsed {
+    width: 80px;
+    padding-left: var(--spacing-150);
+    padding-right: var(--spacing-150);
+}
+
+/* Navigation Header Area */
+.nav-header {
+    padding-bottom: var(--spacing-200);
+    transition: var(--transition-default);
+}
+
+.left-nav.collapsed .nav-header {
+    padding-bottom: var(--spacing-150);
+}
+
+/* Collapse Toggle Area */
+.collapse-toggle-area {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: var(--transition-default);
+}
+
+.left-nav.collapsed .collapse-toggle-area {
+    justify-content: center;
+}
+
+/* Navigation Search Area */
+.nav-search-area {
+    display: flex;
+    align-items: center;
+    transition: var(--transition-default);
+}
+
+/* Navigation Menu Area */
+.nav-menu {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-100);
+    overflow-y: auto;
+    flex: 1;
+}
+
+.left-nav.collapsed .nav-menu {
+    overflow: hidden;
+}
+
+/* Navigation Section Container */
+.nav-section {
+    display: flex;
+    flex-direction: column;
+}
+
+/* ====================================== */
+/* MAIN CONTENT LAYOUT                   */
+/* ====================================== */
+
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: var(--surface-container);
+}
+
+/* ====================================== */
+/* TOP NAVIGATION BAR LAYOUT             */
+/* ====================================== */
+
+.top-nav {
+    background-color: var(--surface-base);
+    border-bottom: var(--border-width-thin) solid var(--border-default);
+    position: sticky;
+    top: 0;
+    z-index: 90;
+    width: 100%;
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-300);
+    gap: var(--spacing-400);
+}
+
+/* Navigation Left Area */
+.nav-left {
+    display: none; /* Hidden on desktop, shown on mobile */
+    align-items: center;
+    gap: var(--spacing-150);
+}
+
+/* Navigation Center Area */
+.nav-center {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-300);
+    flex: 1;
+}
+
+/* Navigation Right Area */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-200);
+}
+
+/* ====================================== */
+/* CONTENT AREA LAYOUT                   */
+/* ====================================== */
+
+.content-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-header {
+    padding: var(--spacing-300);
+    background-color: var(--surface-container);
+}
+
+.page-title {
+    font-size: 28px;
+    font-weight: var(--font-weight-bold);
+    color: var(--text-default);
+    margin: 0;
+}
+
+.content-body {
+    padding: var(--spacing-300);
+    flex: 1;
+    background-color: var(--surface-container);
+}
+
+/* ====================================== */
+/* MOBILE OVERLAY                        */
+/* ====================================== */
+
+.mobile-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 99;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.mobile-overlay.active {
+    display: block;
+    opacity: 1;
+}
+
+/* ====================================== */
+/* RESPONSIVE BREAKPOINTS                */
+/* ====================================== */
+
+/* Hide search on smaller screens */
+@media (max-width: 1096px) {
+    .nav-search-area {
+        display: none;
+    }
+}
+
+/* Tablet adjustments */
+@media (max-width: 1024px) {
+    .nav-container {
+        padding: var(--spacing-200);
+        gap: var(--spacing-200);
+    }
+
+    .nav-center {
+        gap: var(--spacing-200);
+    }
+}
+
+/* Mobile layout */
+@media (max-width: 768px) {
+    /* Navigation drawer becomes off-canvas */
+    .left-nav {
+        position: fixed;
+        left: -100%;
+        top: 0;
+        width: 320px;
+        height: 100vh;
+        z-index: 100;
+        transition: left 0.3s ease;
+    }
+
+    .left-nav.open {
+        left: 0;
+    }
+
+    /* Top nav mobile layout */
+    .nav-container {
+        padding: var(--spacing-150) var(--spacing-200);
+        gap: var(--spacing-150);
+    }
+
+    /* Show logo on mobile */
+    .nav-left {
+        display: flex;
+    }
+
+    /* Hide center navigation on mobile */
+    .nav-center {
+        display: none;
+    }
+
+    /* Adjust spacing */
+    .content-header,
+    .content-body {
+        padding: var(--spacing-200);
+    }
+
+    .page-title {
+        font-size: 24px;
+    }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+    .nav-container {
+        padding: var(--spacing-100) var(--spacing-150);
+        gap: var(--spacing-100);
+    }
+
+    .content-header,
+    .content-body {
+        padding: var(--spacing-150);
+    }
+
+    .page-title {
+        font-size: 20px;
+    }
+}

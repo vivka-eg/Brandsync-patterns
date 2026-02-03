@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Layout Template</title>
+    <link rel="stylesheet" href="../_tokens.css">
+    <link rel="stylesheet" href="dashboard-layout.css">
+</head>
+<body>
+    <!--
+    ========================================
+    DASHBOARD LAYOUT TEMPLATE
+    ========================================
+
+    PURPOSE:
+    This template provides PURE LAYOUT STRUCTURE for dashboard pages.
+    It contains ONLY positioning, sizing, and flexbox layout information.
+    It does NOT include any component styling (buttons, forms, icons, dropdowns, etc.).
+
+    USE THIS FOR:
+    - Fixing layout alignment issues
+    - Standardizing page structure
+    - Reference for positioning navigation and content areas
+    - Understanding responsive breakpoints
+
+    DO NOT USE THIS FOR:
+    - Component styling (use existing component files)
+    - Button, form, or card styles
+    - Icon or typography details
+    - Interactive component behavior
+
+    LAYOUT STRUCTURE:
+    .dashboard-container (main flex wrapper)
+      ├── .left-nav (navigation drawer - 320px expanded, 80px collapsed)
+      │     ├── .nav-header
+      │     ├── .collapse-toggle-area
+      │     ├── .nav-search-area
+      │     └── .nav-menu
+      └── .main-content (takes remaining space)
+            ├── .top-nav (sticky header)
+            │     └── .nav-container
+            │           ├── .nav-left (visible on mobile)
+            │           ├── .nav-center (navigation links)
+            │           └── .nav-right (action buttons)
+            └── .content-area
+                  ├── .content-header
+                  └── .content-body (your page content goes here)
+
+    RESPONSIVE BREAKPOINTS:
+    - 1096px: Hide search areas
+    - 1024px: Tablet adjustments
+    - 768px:  Mobile layout (navigation becomes off-canvas)
+    - 480px:  Small mobile adjustments
+
+    HOW TO USE FOR LAYOUT FIXES:
+    1. Compare your page structure to this template
+    2. Ensure you have the same container hierarchy
+    3. Copy ONLY the layout CSS properties you need
+    4. Keep your existing component styles intact
+
+    WHAT NOT TO COPY:
+    Don't copy component-specific code from other pages.
+    This template is layout structure only.
+    ========================================
+    -->
+
+    <!-- Mobile Overlay (for mobile menu backdrop) -->
+    <div class="mobile-overlay"></div>
+
+    <!-- Main Dashboard Container -->
+    <div class="dashboard-container">
+
+        <!-- Left Navigation Drawer -->
+        <aside class="left-nav">
+            <!-- Navigation Header Area -->
+            <div class="nav-header">
+                <!-- Place your logo/branding component here -->
+            </div>
+
+            <!-- Collapse Toggle Area -->
+            <div class="collapse-toggle-area">
+                <!-- Place your collapse button component here -->
+            </div>
+
+            <!-- Navigation Search Area -->
+            <div class="nav-search-area">
+                <!-- Place your search component here -->
+            </div>
+
+            <!-- Navigation Menu Area -->
+            <nav class="nav-menu">
+                <!-- Place your navigation menu items here -->
+                <!-- Example structure:
+                <div class="nav-section">
+                    [Your menu item component]
+                </div>
+                -->
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+
+            <!-- Top Navigation Bar -->
+            <nav class="top-nav">
+                <div class="nav-container">
+                    <!-- Left: Brand/Logo Area (visible on mobile) -->
+                    <div class="nav-left">
+                        <!-- Place your mobile logo here -->
+                    </div>
+
+                    <!-- Center: Navigation Links Area -->
+                    <div class="nav-center">
+                        <!-- Place your navigation links here -->
+                    </div>
+
+                    <!-- Right: Actions Area -->
+                    <div class="nav-right">
+                        <!-- Place your action buttons/icons here -->
+                        <!-- Example: search, notifications, theme toggle, profile -->
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Page Content Area -->
+            <div class="content-area">
+                <!-- Content Header -->
+                <div class="content-header">
+                    <h1 class="page-title">Page Title</h1>
+                    <!-- Place your page header content/actions here -->
+                </div>
+
+                <!-- Content Body -->
+                <div class="content-body">
+                    <!-- YOUR PAGE CONTENT GOES HERE -->
+                    <!-- Tables, forms, cards, etc. -->
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script>
+        // Add your layout interaction JavaScript here:
+        // - Navigation drawer collapse/expand
+        // - Mobile menu toggle
+        // - Mobile overlay click handler
+        // - Window resize handlers
+    </script>
+</body>
+</html>
