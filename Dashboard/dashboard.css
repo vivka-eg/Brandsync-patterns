@@ -1296,6 +1296,12 @@ body {
     color: var(--icon-default);
 }
 
+.dropdown-divider {
+    height: 1px;
+    background-color: var(--border-default);
+    margin: var(--spacing-100) 0;
+}
+
 /* ====================================== */
 /* Table */
 /* ====================================== */

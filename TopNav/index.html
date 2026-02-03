@@ -74,9 +74,30 @@
                 </button>
 
                 <!-- User Avatar -->
-                <button class="user-avatar" aria-label="User menu">
-                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop" alt="User avatar">
-                </button>
+                <div class="dropdown-wrapper">
+                    <button class="user-avatar" id="profileBtn" aria-label="User menu">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop" alt="User avatar">
+                    </button>
+                    <div class="dropdown-menu" id="profileDropdown">
+                        <button class="dropdown-item">
+                            <i data-lucide="user"></i>
+                            <span>Profile</span>
+                        </button>
+                        <button class="dropdown-item">
+                            <i data-lucide="settings"></i>
+                            <span>Settings</span>
+                        </button>
+                        <button class="dropdown-item">
+                            <i data-lucide="help-circle"></i>
+                            <span>Help</span>
+                        </button>
+                        <div class="dropdown-divider"></div>
+                        <button class="dropdown-item">
+                            <i data-lucide="log-out"></i>
+                            <span>Sign out</span>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -183,6 +204,37 @@
                     toggleMobileMenu();
                 }
             }
+        });
+
+        // Profile dropdown functionality
+        const profileBtn = document.getElementById('profileBtn');
+        const profileDropdown = document.getElementById('profileDropdown');
+
+        // Toggle dropdown
+        profileBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            profileDropdown.classList.toggle('active');
+
+            // Re-initialize icons after dropdown opens
+            if (profileDropdown.classList.contains('active')) {
+                setTimeout(() => lucide.createIcons(), 50);
+            }
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!profileDropdown.contains(e.target) && !profileBtn.contains(e.target)) {
+                profileDropdown.classList.remove('active');
+            }
+        });
+
+        // Handle dropdown item clicks
+        const dropdownItems = document.querySelectorAll('.dropdown-item');
+        dropdownItems.forEach(item => {
+            item.addEventListener('click', () => {
+                console.log('Clicked:', item.textContent.trim());
+                profileDropdown.classList.remove('active');
+            });
         });
     </script>
 </body>
