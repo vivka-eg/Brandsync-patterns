@@ -815,6 +815,26 @@ body {
     gap: var(--spacing-400);
 }
 
+/* Logo and Brand - Hidden on desktop, shown on mobile */
+.nav-brand {
+    display: none;
+    align-items: center;
+    gap: var(--spacing-150);
+}
+
+.brand-logo {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+}
+
+.brand-name {
+    font-size: 20px;
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-default);
+    white-space: nowrap;
+}
+
 /* Navigation Links */
 .nav-links {
     display: flex;
@@ -1758,6 +1778,12 @@ body {
 /* Responsive Design */
 /* ====================================== */
 
+@media (max-width: 1096px) {
+    .search-container {
+        display: none;
+    }
+}
+
 @media (max-width: 1024px) {
     /* Top Navigation - Tablet */
     .nav-links {
@@ -1786,32 +1812,55 @@ body {
         left: 0;
     }
 
-    /* Show mobile menu toggle */
+    /* Hide mobile menu toggle */
     .mobile-menu-toggle {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        display: none;
     }
 
-    /* Top Navigation - Mobile styles */
+    /* Top Navigation - Mobile styles: Show logo icon, notification, and profile */
     .nav-container {
         padding: var(--spacing-150) var(--spacing-200);
         gap: var(--spacing-150);
+        justify-content: space-between;
+    }
+
+    .nav-brand {
+        display: flex;
+    }
+
+    .brand-logo {
+        width: 36px;
+        height: 36px;
+    }
+
+    .brand-name {
+        display: none;
     }
 
     .nav-links {
         display: none;
     }
 
-    .top-nav .search-container {
-        min-width: 180px;
-    }
-
+    /* Show nav actions but hide search and theme toggle */
     .nav-actions {
-        gap: var(--spacing-100);
+        display: flex;
+        gap: var(--spacing-150);
     }
 
-    .icon-button {
+    .search-container {
+        display: none;
+    }
+
+    .search-toggle {
+        display: none;
+    }
+
+    .theme-toggle {
+        display: none;
+    }
+
+    .icon-button,
+    .user-avatar {
         width: 36px;
         height: 36px;
     }
@@ -1819,11 +1868,6 @@ body {
     .icon-button [data-lucide] {
         width: 18px;
         height: 18px;
-    }
-
-    .top-nav .user-avatar {
-        width: 36px;
-        height: 36px;
     }
 
     /* Main content - Navigation Drawer becomes overlay on mobile */
@@ -1902,31 +1946,19 @@ body {
 
 /* Small mobile devices */
 @media (max-width: 480px) {
-    .mobile-menu-toggle {
-        top: var(--spacing-150);
-        left: var(--spacing-150);
-    }
-
     /* Top Navigation - Smaller mobile */
     .nav-container {
         padding: var(--spacing-100) var(--spacing-150);
         gap: var(--spacing-100);
     }
 
-    .top-nav .search-container {
-        min-width: 140px;
-        padding: var(--spacing-75) var(--spacing-150);
-    }
-
-    .icon-button,
-    .top-nav .user-avatar {
+    .brand-logo {
         width: 32px;
         height: 32px;
     }
 
-    .icon-button [data-lucide] {
-        width: 16px;
-        height: 16px;
+    .brand-name {
+        display: none;
     }
 
     .page-title {
