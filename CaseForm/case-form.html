@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Form - SAG-21/09</title>
+
+    <!-- Design Tokens -->
+    <link rel="stylesheet" href="../_tokens.css">
+
+    <!-- Case Form Styles -->
+    <link rel="stylesheet" href="case-form.css">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <!-- Mobile Overlay -->
+    <div class="mobile-overlay"></div>
+
+    <!-- Main Dashboard Container -->
+    <div class="dashboard-container">
+
+        <!-- Left Navigation Drawer -->
+        <aside class="left-nav">
+            <!-- Navigation Header Area -->
+            <div class="nav-header">
+                <svg class="sidebar-logo-svg" width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="EG Brandsync">
+                    <path d="M35.2 0.128906H8.8C4.01109 0.128906 0.128906 4.01109 0.128906 8.8V35.2C0.128906 39.9889 4.01109 43.8711 8.8 43.8711H35.2C39.9889 43.8711 43.8711 39.9889 43.8711 35.2V8.8C43.8711 4.01109 39.9889 0.128906 35.2 0.128906Z" fill="white"/>
+                    <path d="M35.2 0.257812C39.9094 0.257812 43.7422 4.08891 43.7422 8.8V35.2C43.7422 39.9094 39.9111 43.7422 35.2 43.7422H8.8C4.09063 43.7422 0.257812 39.9111 0.257812 35.2V8.8C0.257812 4.08891 4.08891 0.257812 8.8 0.257812H35.2ZM35.2 0H8.8C3.93938 0 0 3.93938 0 8.8V35.2C0 40.0606 3.93938 44 8.8 44H35.2C40.0606 44 44 40.0606 44 35.2V8.8C44 3.93938 40.0606 0 35.2 0Z" fill="#E8EAEE"/>
+                    <path d="M18.6037 21.5067L21.5067 18.6037C21.7748 18.3356 22.2097 18.3356 22.4795 18.6037L25.3962 21.5205C25.6644 21.7886 25.6644 22.2251 25.3962 22.4933L22.4933 25.3962C22.2251 25.6644 21.7886 25.6644 21.5205 25.3962L18.6037 22.4795C18.3356 22.2114 18.3356 21.7748 18.6037 21.5067Z" fill="#57B1FF"/>
+                    <path d="M15.6423 12.6586L6.79249 21.5084C6.52437 21.7766 6.52437 22.2114 6.79249 22.4813L9.82781 25.5166C10.0959 25.7847 10.5308 25.7847 10.8006 25.5166L19.6505 16.6667C19.9186 16.3986 19.9186 15.962 19.6505 15.6939L16.6151 12.6586C16.347 12.3905 15.9105 12.3905 15.6423 12.6586Z" fill="#57B1FF"/>
+                    <path d="M28.3559 31.3414L37.2161 22.4813C37.4842 22.2131 37.4842 21.7766 37.2161 21.5084L34.1808 18.4731C33.9127 18.205 33.4778 18.205 33.208 18.4731L24.3478 27.3333C24.0797 27.6014 24.0797 28.038 24.3478 28.3061L27.3831 31.3414C27.6513 31.6095 28.0878 31.6095 28.3559 31.3414Z" fill="#57B1FF"/>
+                    <path d="M28.3577 12.6586L37.2075 21.5084C37.4756 21.7766 37.4756 22.2114 37.2075 22.4813L34.1722 25.5166C33.9041 25.7847 33.4692 25.7847 33.1994 25.5166L24.3495 16.6667C24.0814 16.3986 24.0814 15.962 24.3495 15.6939L27.3848 12.6586C27.653 12.3905 28.0895 12.3905 28.3577 12.6586Z" fill="#1B85FF"/>
+                    <path d="M15.6441 31.3414L6.78392 22.4813C6.51579 22.2131 6.51579 21.7766 6.78392 21.5084L9.81923 18.4731C10.0874 18.205 10.5222 18.205 10.792 18.4731L19.6522 27.3333C19.9203 27.6014 19.9203 28.038 19.6522 28.3061L16.6169 31.3414C16.3488 31.6095 15.9122 31.6095 15.6441 31.3414Z" fill="#1B85FF"/>
+                </svg>
+            </div>
+
+            <!-- Collapse Toggle Area -->
+            <div class="collapse-toggle-area">
+                <div class="collapse-toggle" role="button" tabindex="0" aria-expanded="true">
+                    <span class="menu-text">Main Menu</span>
+                    <span class="chevron-container">
+                        <i data-lucide="chevron-left"></i>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Navigation Search Area -->
+            <div class="nav-search-area">
+                <div class="sidebar-search">
+                    <i data-lucide="search" class="search-icon"></i>
+                    <input type="text" class="sidebar-search-input" placeholder="Search...">
+                </div>
+            </div>
+
+            <!-- Navigation Menu Area -->
+            <nav class="nav-menu">
+                <div class="nav-section">
+                    <div class="sidebar-item-expandable expanded">
+                        <button class="sidebar-item-toggle" aria-expanded="true">
+                            <i data-lucide="folder-open" class="sidebar-icon"></i>
+                            <span class="sidebar-label">Case Information</span>
+                            <i data-lucide="chevron-down" class="expand-icon"></i>
+                        </button>
+                        <div class="sidebar-submenu">
+                            <a href="#" class="sidebar-subitem active">Inquiries</a>
+                            <a href="#" class="sidebar-subitem">Digital mail</a>
+                            <a href="#" class="sidebar-subitem">Documents</a>
+                            <a href="#" class="sidebar-subitem">Case Log</a>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-item-expandable">
+                        <button class="sidebar-item-toggle" aria-expanded="false">
+                            <i data-lucide="wrench" class="sidebar-icon"></i>
+                            <span class="sidebar-label">Case Tools</span>
+                            <i data-lucide="chevron-right" class="expand-icon"></i>
+                        </button>
+                        <div class="sidebar-submenu">
+                            <a href="#" class="sidebar-subitem">Tool 1</a>
+                            <a href="#" class="sidebar-subitem">Tool 2</a>
+                            <a href="#" class="sidebar-subitem">Tool 3</a>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-item-expandable">
+                        <button class="sidebar-item-toggle" aria-expanded="false">
+                            <i data-lucide="activity" class="sidebar-icon"></i>
+                            <span class="sidebar-label">Activities</span>
+                            <i data-lucide="chevron-right" class="expand-icon"></i>
+                        </button>
+                        <div class="sidebar-submenu">
+                            <a href="#" class="sidebar-subitem">Case Flow</a>
+                            <a href="#" class="sidebar-subitem">Activity History</a>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-item-expandable">
+                        <button class="sidebar-item-toggle" aria-expanded="false">
+                            <i data-lucide="folder-plus" class="sidebar-icon"></i>
+                            <span class="sidebar-label">Case Opening</span>
+                            <i data-lucide="chevron-right" class="expand-icon"></i>
+                        </button>
+                        <div class="sidebar-submenu">
+                            <a href="#" class="sidebar-subitem">Representation</a>
+                            <a href="#" class="sidebar-subitem">Consent</a>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-item-expandable">
+                        <button class="sidebar-item-toggle" aria-expanded="false">
+                            <i data-lucide="info" class="sidebar-icon"></i>
+                            <span class="sidebar-label">Information</span>
+                            <i data-lucide="chevron-right" class="expand-icon"></i>
+                        </button>
+                        <div class="sidebar-submenu">
+                            <a href="#" class="sidebar-subitem">VUM Assessment</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+
+            <!-- Top Navigation Bar -->
+            <nav class="top-nav">
+                <div class="nav-container">
+                    <!-- Left: Mobile menu toggle (visible on mobile) -->
+                    <div class="nav-left">
+                        <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                            <i data-lucide="menu"></i>
+                        </button>
+                    </div>
+
+                    <!-- Center: Logo + Search (visible on desktop, hidden on mobile) -->
+                    <div class="nav-center">
+                        <div class="nav-brand">
+                            <svg class="logo-icon" width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="EG Brandsync">
+                                <path d="M35.2 0.128906H8.8C4.01109 0.128906 0.128906 4.01109 0.128906 8.8V35.2C0.128906 39.9889 4.01109 43.8711 8.8 43.8711H35.2C39.9889 43.8711 43.8711 39.9889 43.8711 35.2V8.8C43.8711 4.01109 39.9889 0.128906 35.2 0.128906Z" fill="white"/>
+                                <path d="M35.2 0.257812C39.9094 0.257812 43.7422 4.08891 43.7422 8.8V35.2C43.7422 39.9094 39.9111 43.7422 35.2 43.7422H8.8C4.09063 43.7422 0.257812 39.9111 0.257812 35.2V8.8C0.257812 4.08891 4.08891 0.257812 8.8 0.257812H35.2ZM35.2 0H8.8C3.93938 0 0 3.93938 0 8.8V35.2C0 40.0606 3.93938 44 8.8 44H35.2C40.0606 44 44 40.0606 44 35.2V8.8C44 3.93938 40.0606 0 35.2 0Z" fill="#E8EAEE"/>
+                                <path d="M18.6037 21.5067L21.5067 18.6037C21.7748 18.3356 22.2097 18.3356 22.4795 18.6037L25.3962 21.5205C25.6644 21.7886 25.6644 22.2251 25.3962 22.4933L22.4933 25.3962C22.2251 25.6644 21.7886 25.6644 21.5205 25.3962L18.6037 22.4795C18.3356 22.2114 18.3356 21.7748 18.6037 21.5067Z" fill="#57B1FF"/>
+                                <path d="M15.6423 12.6586L6.79249 21.5084C6.52437 21.7766 6.52437 22.2114 6.79249 22.4813L9.82781 25.5166C10.0959 25.7847 10.5308 25.7847 10.8006 25.5166L19.6505 16.6667C19.9186 16.3986 19.9186 15.962 19.6505 15.6939L16.6151 12.6586C16.347 12.3905 15.9105 12.3905 15.6423 12.6586Z" fill="#57B1FF"/>
+                                <path d="M28.3559 31.3414L37.2161 22.4813C37.4842 22.2131 37.4842 21.7766 37.2161 21.5084L34.1808 18.4731C33.9127 18.205 33.4778 18.205 33.208 18.4731L24.3478 27.3333C24.0797 27.6014 24.0797 28.038 24.3478 28.3061L27.3831 31.3414C27.6513 31.6095 28.0878 31.6095 28.3559 31.3414Z" fill="#57B1FF"/>
+                                <path d="M28.3577 12.6586L37.2075 21.5084C37.4756 21.7766 37.4756 22.2114 37.2075 22.4813L34.1722 25.5166C33.9041 25.7847 33.4692 25.7847 33.1994 25.5166L24.3495 16.6667C24.0814 16.3986 24.0814 15.962 24.3495 15.6939L27.3848 12.6586C27.653 12.3905 28.0895 12.3905 28.3577 12.6586Z" fill="#1B85FF"/>
+                                <path d="M15.6441 31.3414L6.78392 22.4813C6.51579 22.2131 6.51579 21.7766 6.78392 21.5084L9.81923 18.4731C10.0874 18.205 10.5222 18.205 10.792 18.4731L19.6522 27.3333C19.9203 27.6014 19.9203 28.038 19.6522 28.3061L16.6169 31.3414C16.3488 31.6095 15.9122 31.6095 15.6441 31.3414Z" fill="#1B85FF"/>
+                            </svg>
+                            <span class="brand-name">Case Management</span>
+                        </div>
+
+                        <div class="search-bar">
+                            <i data-lucide="search" class="search-icon"></i>
+                            <input type="search" class="search-input" placeholder="What are you looking for?">
+                        </div>
+                    </div>
+
+                    <!-- Right: Actions -->
+                    <div class="nav-right">
+                        <button class="icon-button" aria-label="Messages">
+                            <i data-lucide="message-circle"></i>
+                        </button>
+                        <button class="icon-button" aria-label="Documents">
+                            <i data-lucide="file-text"></i>
+                        </button>
+                        <button class="icon-button" aria-label="Notifications">
+                            <i data-lucide="bell"></i>
+                        </button>
+                        <button class="icon-button" aria-label="More options">
+                            <i data-lucide="more-horizontal"></i>
+                        </button>
+                        <button class="user-profile" aria-label="User profile">
+                            <i data-lucide="user"></i>
+                        </button>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Page Content Area -->
+            <div class="content-area">
+                <!-- Breadcrumb -->
+                <nav class="breadcrumb">
+                    <a href="#" class="breadcrumb-link">Peter Holm (30124128401)</a>
+                    <i data-lucide="chevron-right" class="breadcrumb-separator"></i>
+                    <span class="breadcrumb-current">Cases</span>
+                </nav>
+
+                <!-- Case Title -->
+                <h1 class="case-title">SAG-21/09 - VUM -85 - 102030-4050</h1>
+
+                <!-- Two Column Layout -->
+                <div class="case-layout">
+                    <!-- Left Column: Case Tools -->
+                    <div class="case-tools-section">
+                        <div class="section-header">
+                            <h2 class="section-title">Case Tools</h2>
+                            <button class="btn-add">
+                                <i data-lucide="plus"></i>
+                                <span>New case tool</span>
+                            </button>
+                        </div>
+
+                        <div class="case-tools-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            <button class="table-header-btn">
+                                                Name
+                                                <i data-lucide="arrow-up-down"></i>
+                                            </button>
+                                        </th>
+                                        <th>
+                                            <button class="table-header-btn">
+                                                Created On
+                                                <i data-lucide="arrow-up-down"></i>
+                                            </button>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <button class="table-action-btn" aria-label="Edit">
+                                                <i data-lucide="pencil"></i>
+                                            </button>
+                                            Sagsabning
+                                        </td>
+                                        <td>11-08-2023</td>
+                                    </tr>
+                                    <tr class="table-row-selected">
+                                        <td>
+                                            <button class="table-action-btn" aria-label="Edit">
+                                                <i data-lucide="pencil"></i>
+                                            </button>
+                                            Sagsabning
+                                        </td>
+                                        <td>11-08-2023</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <button class="table-action-btn" aria-label="Edit">
+                                                <i data-lucide="pencil"></i>
+                                            </button>
+                                            Sagsabning
+                                        </td>
+                                        <td>11-08-2023</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <button class="table-action-btn" aria-label="Edit">
+                                                <i data-lucide="pencil"></i>
+                                            </button>
+                                            Sagsabning
+                                        </td>
+                                        <td>11-08-2023</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <button class="table-action-btn" aria-label="Edit">
+                                                <i data-lucide="pencil"></i>
+                                            </button>
+                                            Sagsabning
+                                        </td>
+                                        <td>11-08-2023</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <button class="table-action-btn" aria-label="Edit">
+                                                <i data-lucide="pencil"></i>
+                                            </button>
+                                            Sagsabning
+                                        </td>
+                                        <td>11-08-2023</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <button class="table-action-btn" aria-label="Edit">
+                                                <i data-lucide="pencil"></i>
+                                            </button>
+                                            Sagsabning
+                                        </td>
+                                        <td>11-08-2023</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <button class="table-action-btn" aria-label="Edit">
+                                                <i data-lucide="pencil"></i>
+                                            </button>
+                                            Sagsabning
+                                        </td>
+                                        <td>11-08-2023</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Case Opening Form -->
+                    <div class="case-form-section">
+                        <h2 class="section-title">Case Opening</h2>
+
+                        <form class="case-form">
+                            <!-- Reason Section -->
+                            <div class="form-section">
+                                <h3 class="form-section-title">Reason</h3>
+                                <div class="form-field">
+                                    <label class="form-label">
+                                        <span class="label-required">*</span>
+                                        What is the case about?
+                                        <button type="button" class="info-icon" aria-label="Information">
+                                            <i data-lucide="help-circle"></i>
+                                        </button>
+                                    </label>
+                                    <textarea
+                                        class="form-textarea"
+                                        placeholder="Specify the reason for the inquiry"
+                                        rows="4"
+                                    ></textarea>
+                                </div>
+                            </div>
+
+                            <!-- Inquiry Section -->
+                            <div class="form-section">
+                                <h3 class="form-section-title">Inquiry / follow-up / own initiative</h3>
+                                <div class="form-field">
+                                    <label class="form-label">
+                                        <span class="label-required">*</span>
+                                        Is the case opened based on an inquiry, a follow-up, or on own initiative?
+                                    </label>
+                                    <div class="form-checkbox-group">
+                                        <label class="form-checkbox">
+                                            <input type="checkbox" checked>
+                                            <span class="checkbox-label">Citizen</span>
+                                        </label>
+                                        <label class="form-checkbox">
+                                            <input type="checkbox">
+                                            <span class="checkbox-label">Relative</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-field">
+                                    <label class="form-label">
+                                        <span class="label-required">*</span>
+                                        Specify contact details
+                                        <button type="button" class="info-icon" aria-label="Information">
+                                            <i data-lucide="help-circle"></i>
+                                        </button>
+                                    </label>
+                                    <textarea
+                                        class="form-textarea"
+                                        placeholder="Contact details"
+                                        rows="3"
+                                    ></textarea>
+                                </div>
+
+                                <div class="form-field">
+                                    <label class="form-label">
+                                        <span class="label-required">*</span>
+                                        Is the case opened based on an inquiry, a follow-up, or on own initiative?
+                                    </label>
+                                    <div class="form-checkbox-group">
+                                        <label class="form-checkbox">
+                                            <input type="checkbox">
+                                            <span class="checkbox-label">Doctor</span>
+                                        </label>
+                                        <label class="form-checkbox">
+                                            <input type="checkbox" checked>
+                                            <span class="checkbox-label">Hospital</span>
+                                        </label>
+                                        <label class="form-checkbox">
+                                            <input type="checkbox">
+                                            <span class="checkbox-label">Other authority/department</span>
+                                        </label>
+                                        <label class="form-checkbox">
+                                            <input type="checkbox">
+                                            <span class="checkbox-label">Ongoing intervention</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Sidebar collapse/expand functionality
+        const collapseToggle = document.querySelector('.collapse-toggle');
+        const leftNav = document.querySelector('.left-nav');
+
+        collapseToggle.addEventListener('click', () => {
+            leftNav.classList.toggle('collapsed');
+            const isCollapsed = leftNav.classList.contains('collapsed');
+            collapseToggle.setAttribute('aria-expanded', !isCollapsed);
+
+            // Rotate chevron icon
+            const icon = collapseToggle.querySelector('[data-lucide]');
+            icon.setAttribute('data-lucide', isCollapsed ? 'chevron-right' : 'chevron-left');
+            lucide.createIcons();
+        });
+
+        // Mobile menu toggle
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const mobileOverlay = document.querySelector('.mobile-overlay');
+
+        if (mobileMenuToggle) {
+            mobileMenuToggle.addEventListener('click', () => {
+                leftNav.classList.toggle('open');
+                mobileOverlay.classList.toggle('active');
+            });
+        }
+
+        if (mobileOverlay) {
+            mobileOverlay.addEventListener('click', () => {
+                leftNav.classList.remove('open');
+                mobileOverlay.classList.remove('active');
+            });
+        }
+
+        // Sidebar expandable items
+        const sidebarToggles = document.querySelectorAll('.sidebar-item-toggle');
+        sidebarToggles.forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                const parent = toggle.parentElement;
+                const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+
+                toggle.setAttribute('aria-expanded', !isExpanded);
+                parent.classList.toggle('expanded');
+
+                const icon = toggle.querySelector('.expand-icon');
+                icon.setAttribute('data-lucide', isExpanded ? 'chevron-right' : 'chevron-down');
+                lucide.createIcons();
+            });
+        });
+    </script>
+</body>
+</html>

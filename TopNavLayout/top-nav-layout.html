@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Navigation Layout Template</title>
+    <link rel="stylesheet" href="../_tokens.css">
+    <link rel="stylesheet" href="top-nav-layout.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <!--
+    ========================================
+    TOP NAVIGATION LAYOUT TEMPLATE
+    ========================================
+
+    PURPOSE:
+    This template provides layout structure AND logo/brand behavior rules for top navigation bars.
+    It includes positioning, sizing, flexbox layout, and responsive logo behavior.
+
+    IMPORTANT - REFERENCE ONLY:
+    The icons, buttons, and specific components shown here are EXAMPLES for demonstration.
+    DO NOT copy them literally into your application. Instead:
+    - Follow the HTML structure (.top-nav, .nav-container, .nav-left/center/right)
+    - Apply the logo sizing rules from the CSS
+    - Use your own icon library, button components, and navigation items
+    - Adapt the responsive behavior patterns to your needs
+
+    USE THIS FOR:
+    - Fixing navigation alignment issues
+    - Standardizing navigation structure
+    - Reference for logo placement and responsive sizing
+    - Understanding responsive navigation behavior
+    - Logo and brand name scaling across breakpoints
+
+    LAYOUT STRUCTURE:
+    .top-nav
+      └── .nav-container
+            ├── .nav-left (logo/brand area)
+            │     └── .brand-logo
+            │           ├── .logo-icon (SVG)
+            │           └── .brand-name (text)
+            ├── .nav-center (navigation links)
+            │     └── .nav-links
+            │           └── .nav-link (individual links)
+            └── .nav-right (action buttons)
+                  └── .icon-btn (icon buttons)
+
+    LOGO BEHAVIOR ACROSS RESOLUTIONS:
+    Desktop (default):
+      - Logo icon: 40px × 40px
+      - Brand name: 20px font-size
+      - Navigation links visible in center
+
+    Tablet (1024px):
+      - Logo icon: 36px × 36px
+      - Brand name: 18px font-size
+      - Navigation links visible in center
+
+    Mobile (768px):
+      - Navigation center (.nav-center) hidden
+      - Logo shown in .nav-left
+      - Icon buttons remain visible
+
+    Small Mobile (480px):
+      - Logo icon: 32px × 32px
+      - Brand name: 16px font-size
+      - Icon buttons scale to 18px
+
+    RESPONSIVE BREAKPOINTS:
+    - 1024px: Tablet (logo scales down)
+    - 768px:  Mobile (nav-center hidden, logo in nav-left)
+    - 480px:  Small mobile (logo scales further)
+
+    HOW TO USE:
+    1. Copy the HTML structure (.top-nav > .nav-container > .nav-left/center/right)
+    2. Use the CSS layout rules and logo sizing behavior
+    3. Replace the example SVG logo with your own brand logo
+    4. Replace the example navigation links with your own menu items
+    5. Replace the example icon buttons with your own action components
+    6. Replace Lucide icons with your preferred icon library
+
+    WHAT NOT TO COPY:
+    - Specific icon implementations (use your own icon library)
+    - Exact button markup (use your own button components)
+    - Demo navigation items (replace with your actual menu)
+
+    ========================================
+    -->
+
+    <!-- Top Navigation Bar -->
+    <nav class="top-nav">
+        <div class="nav-container">
+            <!-- Left: Brand/Logo Area -->
+            <div class="nav-left">
+                <!-- Place your logo component here -->
+                <div class="brand-logo">
+                    <svg class="logo-icon" width="40" height="40" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M35.2 0.128906H8.8C4.01109 0.128906 0.128906 4.01109 0.128906 8.8V35.2C0.128906 39.9889 4.01109 43.8711 8.8 43.8711H35.2C39.9889 43.8711 43.8711 39.9889 43.8711 35.2V8.8C43.8711 4.01109 39.9889 0.128906 35.2 0.128906Z" fill="white"/>
+                        <path d="M35.2 0.257812C39.9094 0.257812 43.7422 4.08891 43.7422 8.8V35.2C43.7422 39.9094 39.9111 43.7422 35.2 43.7422H8.8C4.09063 43.7422 0.257812 39.9111 0.257812 35.2V8.8C0.257812 4.08891 4.08891 0.257812 8.8 0.257812H35.2ZM35.2 0H8.8C3.93938 0 0 3.93938 0 8.8V35.2C0 40.0606 3.93938 44 8.8 44H35.2C40.0606 44 44 40.0606 44 35.2V8.8C44 3.93938 40.0606 0 35.2 0Z" fill="#E8EAEE"/>
+                        <path d="M18.6037 21.5067L21.5067 18.6037C21.7748 18.3356 22.2097 18.3356 22.4795 18.6037L25.3962 21.5205C25.6644 21.7886 25.6644 22.2251 25.3962 22.4933L22.4933 25.3962C22.2251 25.6644 21.7886 25.6644 21.5205 25.3962L18.6037 22.4795C18.3356 22.2114 18.3356 21.7748 18.6037 21.5067Z" fill="#57B1FF"/>
+                        <path d="M15.6423 12.6586L6.79249 21.5084C6.52437 21.7766 6.52437 22.2114 6.79249 22.4813L9.82781 25.5166C10.0959 25.7847 10.5308 25.7847 10.8006 25.5166L19.6505 16.6667C19.9186 16.3986 19.9186 15.962 19.6505 15.6939L16.6151 12.6586C16.347 12.3905 15.9105 12.3905 15.6423 12.6586Z" fill="#57B1FF"/>
+                        <path d="M28.3559 31.3414L37.2161 22.4813C37.4842 22.2131 37.4842 21.7766 37.2161 21.5084L34.1808 18.4731C33.9127 18.205 33.4778 18.205 33.208 18.4731L24.3478 27.3333C24.0797 27.6014 24.0797 28.038 24.3478 28.3061L27.3831 31.3414C27.6513 31.6095 28.0878 31.6095 28.3559 31.3414Z" fill="#57B1FF"/>
+                        <path d="M28.3577 12.6586L37.2075 21.5084C37.4756 21.7766 37.4756 22.2114 37.2075 22.4813L34.1722 25.5166C33.9041 25.7847 33.4692 25.7847 33.1994 25.5166L24.3495 16.6667C24.0814 16.3986 24.0814 15.962 24.3495 15.6939L27.3848 12.6586C27.653 12.3905 28.0895 12.3905 28.3577 12.6586Z" fill="#1B85FF"/>
+                        <path d="M15.6441 31.3414L6.78392 22.4813C6.51579 22.2131 6.51579 21.7766 6.78392 21.5084L9.81923 18.4731C10.0874 18.205 10.5222 18.205 10.792 18.4731L19.6522 27.3333C19.9203 27.6014 19.9203 28.038 19.6522 28.3061L16.6169 31.3414C16.3488 31.6095 15.9122 31.6095 15.6441 31.3414Z" fill="#1B85FF"/>
+                    </svg>
+                    <span class="brand-name">Brand Name</span>
+                </div>
+            </div>
+
+            <!-- Center: Navigation Links Area -->
+            <div class="nav-center">
+                <!-- Place your navigation links here -->
+                <div class="nav-links">
+                    <a href="#" class="nav-link">Dashboard</a>
+                    <a href="#" class="nav-link">Projects</a>
+                    <a href="#" class="nav-link">Team</a>
+                    <a href="#" class="nav-link">Reports</a>
+                </div>
+            </div>
+
+            <!-- Right: Actions Area -->
+            <div class="nav-right">
+                <!-- Place your action buttons here -->
+                <button class="icon-btn" aria-label="Search">
+                    <i data-lucide="search"></i>
+                </button>
+                <button class="icon-btn" aria-label="Notifications">
+                    <i data-lucide="bell"></i>
+                </button>
+                <button class="icon-btn" aria-label="User Profile">
+                    <i data-lucide="user"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Demo Content Area -->
+    <div class="content-demo">
+        <h1>Page Content</h1>
+        <p>This is a clean top navigation layout template.</p>
+        <p>Copy the structure and adapt it to your needs.</p>
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

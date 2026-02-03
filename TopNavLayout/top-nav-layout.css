@@ -1,0 +1,333 @@
+/* ====================================== */
+/* TOP NAVIGATION LAYOUT TEMPLATE        */
+/* Pure layout structure only            */
+/* No component-specific styles          */
+/* ====================================== */
+
+/*
+PURPOSE:
+This file contains layout positioning, sizing, flexbox structure, AND logo/brand behavior rules.
+It includes component styles for logo, brand name, navigation links, and icon buttons.
+
+IMPORTANT - REFERENCE ONLY:
+The component styles (buttons, icons, links) shown here are EXAMPLES for reference.
+DO NOT copy them literally. Use your own component implementations while following:
+- The layout structure (.top-nav, .nav-container, .nav-left/center/right)
+- The logo sizing behavior across breakpoints
+- The responsive navigation patterns
+
+USE THIS FOR:
+- Fixing navigation alignment issues
+- Understanding the flex layout structure
+- Reference for logo and navigation positioning
+- Responsive logo sizing behavior across all breakpoints
+- Reference patterns (not literal implementation) for navigation links and buttons
+
+KEY LAYOUT PROPERTIES:
+- .top-nav: position: sticky (stays at top)
+- .nav-container: display: flex (horizontal layout)
+- .nav-left: Logo/brand area
+- .nav-center: Navigation links (flex: 1, takes space)
+- .nav-right: Action buttons
+
+LOGO BEHAVIOR ACROSS RESOLUTIONS:
+Desktop (default):
+  - .logo-icon: 40px × 40px
+  - .brand-name: 20px font-size
+
+Tablet (1024px):
+  - .logo-icon: 36px × 36px
+  - .brand-name: 18px font-size
+
+Mobile (768px):
+  - .nav-center: hidden
+  - .nav-left: visible (logo shown)
+
+Small Mobile (480px):
+  - .logo-icon: 32px × 32px
+  - .brand-name: 16px font-size
+
+RESPONSIVE BREAKPOINTS:
+- 1024px: Tablet (logo scales to 36px, brand name to 18px)
+- 768px:  Mobile (hides nav-center, shows nav-left with logo)
+- 480px:  Small mobile (logo scales to 32px, brand name to 16px)
+
+DESIGN TOKENS USED:
+- Spacing: --spacing-100 to --spacing-400
+- Colors: --surface-base, --border-default, --text-default, --text-secondary
+- Borders: --border-width-thin, --border-radius-*
+- Typography: --font-family-body, --font-weight-*
+- Transitions: --transition-default
+
+WHAT TO COPY FROM THIS TEMPLATE:
+✓ Layout structure CSS (.top-nav, .nav-container, .nav-left/center/right)
+✓ Logo sizing rules (.logo-icon, .brand-name) at all breakpoints
+✓ Responsive behavior patterns (hiding/showing elements)
+✓ Flexbox positioning and alignment
+
+WHAT NOT TO COPY (use your own instead):
+✗ Specific button implementations
+✗ Icon markup and styling
+✗ Navigation link implementations
+✗ Demo content styles
+
+This template provides complete navigation header structure and logo responsive behavior.
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family-body);
+    background-color: var(--surface-container);
+    color: var(--text-default);
+    line-height: 1.5;
+}
+
+/* ====================================== */
+/* TOP NAVIGATION LAYOUT                  */
+/* ====================================== */
+
+.top-nav {
+    background-color: var(--surface-base);
+    border-bottom: var(--border-width-thin) solid var(--border-default);
+    position: sticky;
+    top: 0;
+    z-index: 90;
+    width: 100%;
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-300);
+    gap: var(--spacing-400);
+    max-width: 1920px;
+    margin: 0 auto;
+}
+
+/* ====================================== */
+/* NAVIGATION AREAS                       */
+/* ====================================== */
+
+/* Left: Logo/Brand Area */
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-150);
+    flex-shrink: 0;
+}
+
+/* Center: Navigation Links Area */
+.nav-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+
+/* Right: Actions Area */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-150);
+    flex-shrink: 0;
+}
+
+/* ====================================== */
+/* LOGO AND BRAND COMPONENTS              */
+/* Reference examples - adapt to your own components */
+/* ====================================== */
+
+/* Brand Container */
+.brand-logo {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-150);
+}
+
+/* Logo Icon - Desktop Default */
+.logo-icon {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+}
+
+/* Brand Name - Desktop Default */
+.brand-name {
+    font-size: 20px;
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-default);
+    white-space: nowrap;
+}
+
+/* Navigation Links Container */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-200);
+    padding-left: var(--spacing-300);
+}
+
+/* Navigation Link Styles (Example only - use your own components) */
+.nav-link {
+    font-size: var(--font-size-medium);
+    font-weight: var(--font-weight-regular);
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: var(--spacing-100) var(--spacing-150);
+    border-radius: var(--border-radius-75);
+    transition: var(--transition-default);
+    white-space: nowrap;
+}
+
+.nav-link:hover {
+    color: var(--text-default);
+    background-color: var(--surface-hover);
+}
+
+.nav-link:focus {
+    outline: var(--border-width-medium) solid var(--border-primary-focus);
+    outline-offset: var(--spacing-25);
+}
+
+.nav-link.active {
+    color: var(--text-default);
+    font-weight: var(--font-weight-semibold);
+}
+
+/* Icon Button Styles (Example only - use your own button components) */
+.icon-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-100);
+    background: none;
+    border: none;
+    border-radius: var(--border-radius-75);
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: var(--transition-default);
+}
+
+.icon-btn:hover {
+    background-color: var(--surface-hover);
+    color: var(--text-default);
+}
+
+.icon-btn:focus {
+    outline: var(--border-width-medium) solid var(--border-primary-focus);
+    outline-offset: var(--spacing-25);
+}
+
+.icon-btn [data-lucide] {
+    width: 20px;
+    height: 20px;
+}
+
+/* ====================================== */
+/* DEMO CONTENT (Remove in production)   */
+/* ====================================== */
+
+.content-demo {
+    padding: var(--spacing-400);
+    max-width: 1920px;
+    margin: 0 auto;
+}
+
+.content-demo h1 {
+    font-size: 28px;
+    font-weight: var(--font-weight-bold);
+    color: var(--text-default);
+    margin-bottom: var(--spacing-200);
+}
+
+.content-demo p {
+    font-size: var(--font-size-medium);
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-150);
+}
+
+/* ====================================== */
+/* RESPONSIVE BREAKPOINTS                 */
+/* Logo scales down progressively         */
+/* Navigation behavior changes on mobile  */
+/* ====================================== */
+
+/* Tablet adjustments (1024px) */
+@media (max-width: 1024px) {
+    /* Navigation container adjustments */
+    .nav-container {
+        padding: var(--spacing-200);
+        gap: var(--spacing-200);
+    }
+
+    /* Logo - Tablet Size */
+    .logo-icon {
+        width: 36px;
+        height: 36px;
+    }
+
+    /* Brand Name - Tablet Size */
+    .brand-name {
+        font-size: 18px;
+    }
+
+    /* Navigation links adjustments */
+    .nav-links {
+        padding-left: 0;
+    }
+
+    .nav-center {
+        gap: var(--spacing-200);
+    }
+}
+
+/* Mobile layout (768px) */
+@media (max-width: 768px) {
+    /* Navigation container mobile layout */
+    .nav-container {
+        padding: var(--spacing-150) var(--spacing-200);
+        gap: var(--spacing-150);
+    }
+
+    /* IMPORTANT: Hide center navigation on mobile */
+    .nav-center {
+        display: none;
+    }
+
+    /* Show logo in nav-left on mobile */
+    .nav-left {
+        display: flex;
+    }
+}
+
+/* Small mobile (480px) */
+@media (max-width: 480px) {
+    /* Navigation container small mobile layout */
+    .nav-container {
+        padding: var(--spacing-100) var(--spacing-150);
+        gap: var(--spacing-100);
+    }
+
+    /* Logo - Small Mobile Size */
+    .logo-icon {
+        width: 32px;
+        height: 32px;
+    }
+
+    /* Brand Name - Small Mobile Size */
+    .brand-name {
+        font-size: 16px;
+    }
+
+    /* Icon buttons smaller on small mobile */
+    .icon-btn [data-lucide] {
+        width: 18px;
+        height: 18px;
+    }
+}
