@@ -1,11 +1,68 @@
 /* ====================================== */
-/* Personal Details Component Styles     */
-/* Layout handled by dashboard-layout.css */
+/* Personal Details - Complete Styles    */
+/* Layout + Components (Self-contained)  */
 /* ====================================== */
 
 /* ====================================== */
-/* Navigation Drawer Components          */
+/* Base Styles                            */
 /* ====================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family-body);
+    background-color: var(--surface-container);
+    color: var(--text-default);
+    line-height: 1.5;
+}
+
+/* ====================================== */
+/* Main Layout Structure                  */
+/* ====================================== */
+
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+}
+
+/* ====================================== */
+/* Left Navigation Drawer Layout          */
+/* ====================================== */
+
+.left-nav {
+    width: 320px;
+    min-height: 100vh;
+    background-color: var(--surface-base);
+    border-right: var(--border-width-thin) solid var(--border-default);
+    display: flex;
+    flex-direction: column;
+    padding: var(--spacing-300);
+    gap: var(--spacing-100);
+    position: relative;
+    transition: width 0.3s ease;
+    overflow: hidden;
+}
+
+.left-nav.collapsed {
+    width: 80px;
+    padding-left: var(--spacing-150);
+    padding-right: var(--spacing-150);
+}
+
+/* Navigation Header Area */
+.nav-header {
+    padding-bottom: var(--spacing-200);
+    transition: var(--transition-default);
+}
+
+.left-nav.collapsed .nav-header {
+    padding-bottom: var(--spacing-150);
+}
 
 /* Logo SVG */
 .sidebar-logo-svg {
@@ -14,7 +71,18 @@
     flex-shrink: 0;
 }
 
-/* Collapse Toggle */
+/* Collapse Toggle Area */
+.collapse-toggle-area {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: var(--transition-default);
+}
+
+.left-nav.collapsed .collapse-toggle-area {
+    justify-content: center;
+}
+
 .collapse-toggle {
     display: flex;
     align-items: center;
@@ -64,7 +132,13 @@
     justify-content: center;
 }
 
-/* Search */
+/* Navigation Search Area */
+.nav-search-area {
+    display: flex;
+    align-items: center;
+    transition: var(--transition-default);
+}
+
 .sidebar-search {
     display: flex;
     align-items: center;
@@ -74,6 +148,7 @@
     border: var(--border-width-thin) solid var(--border-default);
     border-radius: var(--border-radius-100);
     transition: var(--transition-default);
+    width: 100%;
 }
 
 .left-nav.collapsed .sidebar-search {
@@ -111,6 +186,24 @@
 
 .sidebar-search-input::placeholder {
     color: var(--text-muted);
+}
+
+/* Navigation Menu Area */
+.nav-menu {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-100);
+    overflow-y: auto;
+    flex: 1;
+}
+
+.left-nav.collapsed .nav-menu {
+    overflow: hidden;
+}
+
+.nav-section {
+    display: flex;
+    flex-direction: column;
 }
 
 /* Navigation Items */
@@ -207,8 +300,59 @@
 }
 
 /* ====================================== */
-/* Top Navigation Components             */
+/* Main Content Layout                    */
 /* ====================================== */
+
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: var(--surface-container);
+}
+
+/* ====================================== */
+/* Top Navigation Bar Layout              */
+/* ====================================== */
+
+.top-nav {
+    background-color: var(--surface-base);
+    border-bottom: var(--border-width-thin) solid var(--border-default);
+    position: sticky;
+    top: 0;
+    z-index: 90;
+    width: 100%;
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-300);
+    gap: var(--spacing-400);
+}
+
+/* Navigation Left Area */
+.nav-left {
+    display: none;
+    align-items: center;
+    gap: var(--spacing-150);
+}
+
+/* Navigation Center Area */
+.nav-center {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-300);
+    flex: 1;
+}
+
+/* Navigation Right Area */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-200);
+}
 
 /* Logo Component */
 .nav-brand {
@@ -326,7 +470,60 @@
 }
 
 /* ====================================== */
-/* Personal Details Header               */
+/* Content Area Layout                    */
+/* ====================================== */
+
+.content-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-header {
+    padding: var(--spacing-300);
+    background-color: var(--surface-container);
+}
+
+.page-title {
+    font-size: 28px;
+    font-weight: var(--font-weight-bold);
+    color: var(--text-default);
+    margin: 0;
+}
+
+.content-body {
+    padding: var(--spacing-300);
+    flex: 1;
+    background-color: var(--surface-container);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-300);
+}
+
+/* ====================================== */
+/* Mobile Overlay                         */
+/* ====================================== */
+
+.mobile-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 99;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.mobile-overlay.active {
+    display: block;
+    opacity: 1;
+}
+
+/* ====================================== */
+/* Personal Details Header                */
 /* ====================================== */
 
 .personal-details-header {
@@ -752,8 +949,24 @@
 /* Responsive Design                      */
 /* ====================================== */
 
-/* Tablets and Below */
+/* Hide search on smaller screens */
+@media (max-width: 1096px) {
+    .nav-search-area {
+        display: none;
+    }
+}
+
+/* Tablet adjustments */
 @media (max-width: 1024px) {
+    .nav-container {
+        padding: var(--spacing-200);
+        gap: var(--spacing-200);
+    }
+
+    .nav-center {
+        gap: var(--spacing-200);
+    }
+
     .nav-links {
         padding-left: 0;
     }
@@ -769,6 +982,15 @@
     .logo-icon {
         width: 36px;
         height: 36px;
+    }
+
+    .content-header,
+    .content-body {
+        padding: var(--spacing-200);
+    }
+
+    .page-title {
+        font-size: 24px;
     }
 
     .patient-details {
@@ -853,8 +1075,65 @@
     }
 }
 
-/* Mobile Devices */
+/* Mobile layout */
+@media (max-width: 768px) {
+    /* Navigation drawer becomes off-canvas */
+    .left-nav {
+        position: fixed;
+        left: -100%;
+        top: 0;
+        width: 320px;
+        height: 100vh;
+        z-index: 100;
+        transition: left 0.3s ease;
+    }
+
+    .left-nav.open {
+        left: 0;
+    }
+
+    /* Top nav mobile layout */
+    .nav-container {
+        padding: var(--spacing-150) var(--spacing-200);
+        gap: var(--spacing-150);
+    }
+
+    /* Show mobile menu toggle */
+    .nav-left {
+        display: flex;
+    }
+
+    /* Hide center navigation on mobile */
+    .nav-center {
+        display: none;
+    }
+
+    .content-header,
+    .content-body {
+        padding: var(--spacing-200);
+    }
+
+    .page-title {
+        font-size: 24px;
+    }
+}
+
+/* Small mobile */
 @media (max-width: 480px) {
+    .nav-container {
+        padding: var(--spacing-100) var(--spacing-150);
+        gap: var(--spacing-100);
+    }
+
+    .content-header,
+    .content-body {
+        padding: var(--spacing-150);
+    }
+
+    .page-title {
+        font-size: 20px;
+    }
+
     .logo-icon {
         width: 32px;
         height: 32px;
