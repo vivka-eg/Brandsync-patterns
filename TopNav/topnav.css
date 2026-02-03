@@ -79,6 +79,13 @@ body {
     left: 6px;
 }
 
+/* Brandsync Logo SVG */
+.brand-logo {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+}
+
 .brand-name {
     font-size: 20px;
     font-weight: var(--font-weight-semibold);
@@ -107,21 +114,44 @@ body {
     border-radius: var(--border-radius-75);
     transition: var(--transition-default);
     white-space: nowrap;
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: var(--spacing-150);
+    right: var(--spacing-150);
+    height: 2px;
+    background-color: var(--border-default);
+    border-radius: var(--border-radius-full);
+    opacity: 0;
+    transition: var(--transition-default);
 }
 
 .nav-link:hover {
     color: var(--text-default);
-    background-color: var(--surface-hover);
+    background-color: transparent;
+}
+
+.nav-link:hover::after {
+    opacity: 1;
 }
 
 .nav-link:focus {
-    outline: var(--border-width-medium) solid var(--border-primary-focus);
-    outline-offset: var(--spacing-25);
+    outline: none;
 }
 
 .nav-link.active {
-    color: var(--text-default);
+    color: var(--color-primary-default);
     font-weight: var(--font-weight-semibold);
+    background-color: transparent;
+}
+
+.nav-link.active::after {
+    background-color: var(--color-primary-default);
+    opacity: 1;
 }
 
 /* ====================================== */
@@ -182,24 +212,24 @@ body {
     height: 40px;
     background: none;
     border: none;
-    border-radius: var(--border-radius-75);
+    border-radius: var(--border-radius-full);
     color: var(--icon-secondary);
     cursor: pointer;
     transition: var(--transition-default);
 }
 
 .icon-button:hover {
-    background-color: var(--surface-hover);
+    background-color: var(--surface-container);
     color: var(--icon-default);
 }
 
 .icon-button:focus {
-    outline: var(--border-width-medium) solid var(--border-primary-focus);
-    outline-offset: var(--spacing-25);
+    outline: none;
 }
 
 .icon-button:active {
     background-color: var(--surface-pressed);
+    transform: scale(0.95);
 }
 
 .icon-button [data-lucide] {
@@ -250,12 +280,16 @@ body {
 }
 
 .user-avatar:hover {
-    border-color: var(--border-neutral-hover);
+    border-color: var(--color-primary-default);
+    transform: scale(1.05);
 }
 
 .user-avatar:focus {
-    outline: var(--border-width-medium) solid var(--border-primary-focus);
-    outline-offset: var(--spacing-25);
+    outline: none;
+}
+
+.user-avatar:active {
+    transform: scale(0.95);
 }
 
 .user-avatar img {
@@ -277,19 +311,24 @@ body {
     height: 40px;
     background: none;
     border: none;
-    border-radius: var(--border-radius-75);
+    border-radius: var(--border-radius-full);
     color: var(--icon-secondary);
     cursor: pointer;
     transition: var(--transition-default);
 }
 
 .mobile-menu-toggle:hover {
-    background-color: var(--surface-hover);
+    background-color: var(--surface-container);
     color: var(--icon-default);
+}
+
+.mobile-menu-toggle:focus {
+    outline: none;
 }
 
 .mobile-menu-toggle:active {
     background-color: var(--surface-pressed);
+    transform: scale(0.95);
 }
 
 .menu-icon {
@@ -356,13 +395,21 @@ body {
     padding: var(--spacing-50);
     color: var(--icon-secondary);
     cursor: pointer;
-    border-radius: var(--border-radius-50);
+    border-radius: var(--border-radius-full);
     transition: var(--transition-default);
 }
 
 .search-close:hover {
-    background-color: var(--surface-hover);
+    background-color: var(--surface-container);
     color: var(--icon-default);
+}
+
+.search-close:focus {
+    outline: none;
+}
+
+.search-close:active {
+    transform: scale(0.95);
 }
 
 .search-close [data-lucide] {
